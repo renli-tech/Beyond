@@ -1,0 +1,11 @@
+coverage
+
+dist
+
+build
+
+node_modules
+
+storybook-static
+
+scripts

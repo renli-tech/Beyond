@@ -1,0 +1,32 @@
+{
+    "name": "@beyond/native",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "browser": "dist/index.umd.js",
+    "keywords": [
+        "React",
+        "React-Native",
+        "UI",
+        "Electron",
+        "Design"
+    ],
+    "author": "Renli",
+    "license": "Apache License",
+    "browserslist": {
+        "production": [
+          ">0.2%",
+          "not dead",
+          "not op_mini all"
+        ],
+        "development": [
+          "last 1 chrome version",
+          "last 1 firefox version",
+          "last 1 safari version"
+        ]
+    },
+    "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+    }
+}

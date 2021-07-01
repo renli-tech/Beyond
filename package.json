@@ -1,0 +1,117 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "keywords": [
+    "React",
+    "React-Native",
+    "UI",
+    "Electron",
+    "Design"
+  ],
+  "author": "Renli",
+  "license": "Apache License",
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "build": "node scripts/build.js",
+    "lerna:publish": "npx lerna publish --conventional-commits",
+    "lerna:changed": "npx lerna changed",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier '**/*.{js,ts,tsx}' --write",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:staged": "jest --findRelatedTests",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@storybook/addon-info": "^6.0.0-alpha.2",
+    "@storybook/addon-knobs": "^6.0.20",
+    "@storybook/addons": "^6.0.20",
+    "@storybook/react": "^6.0.20",
+    "@storybook/theming": "^6.0.20",
+    "@types/jest": "^26.0.10",
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-test-renderer": "^16.9.3",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "babel-jest": "^26.3.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "commitizen": "^4.2.4",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "git-cz": "^4.7.6",
+    "husky": "^7.0.0",
+    "jest": "^27.0.6",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "rollup": "^2.52.6",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renli-tech/Beyond.git"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "npm run lint:fix",
+      "npm run test:staged"
+    ]
+  }
+}
