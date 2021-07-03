@@ -1,13 +1,10 @@
 {
     "name": "@beyond/web",
     "version": "1.0.0",
-    "description": "",
+    "description": "Beyond React Library for Web ",
     "main": "dist/index.cjs.js",
     "module": "dist/index.es.js",
     "browser": "dist/index.umd.js",
-    "scripts": {
-      "build": "rollup -c"
-    },
     "keywords": [
         "React",
         "React-Native",
@@ -15,8 +12,16 @@
         "Electron",
         "Design"
     ],
+    "scripts": {
+      "build": "rollup -c",
+      "prebuild": "rimraf dist build"
+    },
+    "dependencies": {
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2"
+    },
     "author": "Renli",
-    "license": "Apache License",
+    "license": "MIT",
     "browserslist": {
         "production": [
           ">0.2%",
