@@ -4,6 +4,7 @@
 # types and commitlint
 commitlint.config.js
 react-app-env.d.ts
+docs
 
 # ignore built packages
 packages/**/dist/**

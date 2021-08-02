@@ -1,12 +1,13 @@
-/**
- * Copied from Gatsby:
- * https://github.com/gatsbyjs/gatsby/blob/master/scripts/check-versions.js
- */
-const { writeFileSync } = require(`fs`);
-const yargs = require(`yargs`);
-const { getPackages } = require(`@lerna/project`);
-const PackageGraph = require(`@lerna/package-graph`);
-const semver = require(`semver`);
+// const { writeFileSync } = require(`fs`);
+// const yargs = require(`yargs`);
+// const { getPackages } = require(`@lerna/project`);
+// const PackageGraph = require(`@lerna/package-graph`);
+// const semver = require(`semver`);
+import { writeFileSync } from "fs";
+import yargs from "yargs";
+import { getPackages } from "@lerna/project";
+import PackageGraph from "@lerna/package-graph";
+import semver from "semver";
 
 let warned = false;
 const argv = yargs

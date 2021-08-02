@@ -38,5 +38,8 @@ module.exports = {
         "@typescript-eslint/explicit-module-boundary-types": "off"
       }
     }
-  ]
+  ],
+  "rules":{
+    '@typescript-eslint/no-var-requires': 0,
+  }
 }
