@@ -1,0 +1,26 @@
+*.min.js
+**/node_modules/**
+
+# webfont demo styles
+**/specimen_files
+
+# cache-dirs
+**/.cache
+
+# types and commitlint
+commitlint.config.js
+react-app-env.d.ts
+
+# ignore built packages
+packages/**/dist/**
+packages/**/build/**
+
+# fixtures
+**/__testfixtures__/**
+**/__tests__/fixtures/**
+
+# coverage
+coverage
+
+# forestry files
+.forestry/**/*
