@@ -27,8 +27,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-},
-"publishConfig": {
-"registry": "https://npm.pkg.github.com"
-}
+  },
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+  }
 }
