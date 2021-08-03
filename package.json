@@ -23,10 +23,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "eject": "react-scripts eject",
+    "start:docs": "yarn --cwd ./docs start",
     "bootstrap": "lerna bootstrap --use-workspaces && yarn hooks:install",
     "build": "lerna run --stream build",
+    "build:docs": "yarn --cwd ./docs build",
+    "deploy:docs":"yarn --cwd ./docs deploy",
     "rebuild": "run-s clean bootstrap build",
     "clean": "lerna run clean && lerna clean -y",
     "test": "lerna run test",
