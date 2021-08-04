@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "examples/*"
     ],
     "nohoist": [
       "**/babel**",
@@ -27,7 +28,7 @@
     "bootstrap": "lerna bootstrap --use-workspaces && yarn hooks:install",
     "build": "lerna run --stream build",
     "build:docs": "yarn --cwd ./docs build",
-    "deploy:docs":"yarn --cwd ./docs deploy",
+    "deploy:docs": "yarn --cwd ./docs deploy",
     "rebuild": "run-s clean bootstrap build",
     "clean": "lerna run clean && lerna clean -y",
     "test": "lerna run test",

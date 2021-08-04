@@ -1,20 +1,21 @@
-import React, { forwardRef } from "react";
+import styled from "styled-components"
+import { createComponent } from "@beyond/system";
 
 export interface ButtonProps {
-  /**
-   * @property onClick
-   */
-  onClick: (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  color?: string;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const { children, ...rest } = props;
+const ButtonView = styled.button`
+    background:"palevioletred";
+    color: "palevioletred";
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+`;
 
-    return (
-      <button {...rest} ref={ref}>
-        {children}
-      </button>
-    );
-  }
-);
+export const Button = createComponent<"button",ButtonProps>(ButtonView, {
+  displayName: "Button",
+  props: {}
+});

@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
-  "author":"Ope Abidemi",
+  "author": "Ope Abidemi",
   "files": [
     "src",
     "dist"
@@ -33,6 +33,6 @@
     "react-dom": "^16 || ^17 || ^18"
   },
   "publishConfig": {
-  "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }

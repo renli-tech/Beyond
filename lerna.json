@@ -1,25 +1,15 @@
 {
-  "version": "0.0.0",
+  "version": "27.0.6",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "packages": [
     "packages/*",
     "examples/*"
   ],
-  "useWorkspaces":true,
-  "npmClient": "npm",
-  "command": {
-    "publish": {
-      "ignoreChanges": [
-        "ignored-file",
-        "*.md"
-      ],
-      "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com"
-    },
-    "bootstrap": {
-      "ignore": "component-*",
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
-    }
-  }
+  "nohoist": [
+    "*react*",
+    "*react*/**",
+    "*react-native*",
+    "*react-native*/**"
+  ]
 }

@@ -3,7 +3,7 @@
  * Thanks to the guys at https://github.com/tailwindlabs/tailwindcss for the color codes and names
  */
 
-const colors = {
+export const colors = {
   black: "#000",
   white: "#fff",
   rose: {
@@ -271,3 +271,17 @@ const colors = {
     900: "#0f172a"
   }
 };
+export interface Color {
+  name: string;
+  shade:
+    | "50"
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "700"
+    | "800"
+    | "900";
+}
