@@ -5,6 +5,7 @@
 commitlint.config.js
 react-app-env.d.ts
 docs
+examples
 
 # ignore built packages
 packages/**/dist/**

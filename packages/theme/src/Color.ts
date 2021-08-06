@@ -270,18 +270,32 @@ export const colors = {
     800: "#1e293b",
     900: "#0f172a"
   }
-};
+} as const;
+
 export interface Color {
-  name: string;
-  shade:
-    | "50"
-    | "100"
-    | "200"
-    | "300"
-    | "400"
-    | "500"
-    | "600"
-    | "700"
-    | "800"
-    | "900";
+  name: ColorName;
+  value: string;
 }
+
+type ColorName = keyof typeof colors;
+
+type ColorShade =
+  | "50"
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900";
+
+export type ColorFunction = (name: ColorName, shade: ColorShade) => Color;
+
+export const getColor: ColorFunction = (name, shade) => {
+  return {
+    name: name,
+    value: colors[name][shade]
+  } as Color;
+};

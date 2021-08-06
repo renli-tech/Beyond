@@ -25,4 +25,5 @@ coverage
 # forestry files
 .forestry/**/*
 
+examples
 docs

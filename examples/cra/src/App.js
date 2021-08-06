@@ -1,10 +1,10 @@
-import { Button } from "@beyond/react";
+// import { Button } from "@beyond/react";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button>Hello</Button>
+        {/* <Button>Hello</Button> */}
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

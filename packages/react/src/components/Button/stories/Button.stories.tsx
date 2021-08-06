@@ -1,14 +1,9 @@
 import React from "react";
+import { Meta } from "@storybook/react";
 import Button, { AnotherButton } from "../Button";
 export default {
-  title: "Button title",
+  title: "Button",
   component: Button
-};
-export const Basic = () => (
-  <Button color='blue' backgroundColor='red'>
-    Hello
-  </Button>
-);
-export const AnotherBasic = () => (
-  <AnotherButton color='blue'>Another Basic</AnotherButton>
-);
+} as Meta;
+export const Basic = () => <Button radius='100'>Hello</Button>;
+export const RoundedBasic = () => <AnotherButton>Another Basic</AnotherButton>;
