@@ -1,20 +1,14 @@
-import React from "react";
+import * as React from "react";
+import { generateId } from "./utils";
 import { Props } from "./types";
 
-interface Options<TTag, OurProps> {
-  displayName: string;
-  props: Props<TTag, OurProps>;
-}
+export const createComponent = <OurProps extends {}>(
+  view: React.ComponentType<any>
+) => (props: Props<OurProps>): React.ReactElement => {
+  const newProps: Props<OurProps> = {
+    id: generateId(view)
+  } as Props<OurProps>;
+  const res = React.createElement(view, newProps, props?.children);
 
-export function createComponent<TTag, OurProps>(
-  view: React.FC<{}>,
-  { props, displayName }: Options<TTag, OurProps>
-): React.FunctionComponent<Props<TTag, OurProps>> {
-  const ResultComponent: React.FC<Props<TTag, OurProps>> = () => {
-    return React.createElement(view)
-  };
-
-  ResultComponent.displayName = displayName || "BeyondComponent";
-
-  return ResultComponent;
-}
+  return res;
+};

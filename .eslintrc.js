@@ -10,7 +10,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jest/recommended",
-    "prettier",
+    // "prettier",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
     "prettier/react"

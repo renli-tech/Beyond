@@ -1,21 +1,33 @@
-import styled from "styled-components"
-import { createComponent } from "@beyond/system";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable react/prop-types */
+import * as React from "react";
+import styled from "styled-components";
 
 export interface ButtonProps {
   color?: string;
+  backgroundColor?: string;
 }
 
-const ButtonView = styled.button`
-    background:"palevioletred";
-    color: "palevioletred";
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
+const ButtonBase = styled.button<ButtonProps>`
+  color: ${(props: ButtonProps) => props.color};
+  background-color: ${(props: ButtonProps) => props.backgroundColor};
 `;
 
-export const Button = createComponent<"button",ButtonProps>(ButtonView, {
-  displayName: "Button",
-  props: {}
-});
+const Button: React.FC<ButtonProps> = props => {
+  return React.createElement(ButtonBase, props, props.children);
+};
+
+export const createComponent = (view: any) => (
+  props:
+    | (React.HTMLAttributes<HTMLElement> & React.ClassAttributes<HTMLElement>)
+    | null
+    | undefined
+) => {
+  const res = React.createElement(view, props, props?.children);
+
+  return res;
+};
+
+export const AnotherButton = createComponent(ButtonBase);
+
+export default Button;

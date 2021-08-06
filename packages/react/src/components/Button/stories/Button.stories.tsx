@@ -1,9 +1,14 @@
-import React from 'react'
-import { Button } from '../Button'
+import React from "react";
+import Button, { AnotherButton } from "../Button";
 export default {
-     title: 'Button title',
-     component: Button
-}
+  title: "Button title",
+  component: Button
+};
 export const Basic = () => (
-     <button>Hello</button>
-)
+  <Button color='blue' backgroundColor='red'>
+    Hello
+  </Button>
+);
+export const AnotherBasic = () => (
+  <AnotherButton color='blue'>Another Basic</AnotherButton>
+);
