@@ -35,18 +35,15 @@ export const spacings = {
   "96": "24rem"
 } as const;
 
-type SpacingName = keyof typeof spacings;
+export type SpacingName = keyof typeof spacings;
 
 export interface Spacing {
   name: SpacingName;
   value: string;
 }
 
-type SpacingFunction = (name: SpacingName) => Spacing;
+type SpacingFunction = (name: SpacingName) => string;
 
 export const getSpacing: SpacingFunction = name => {
-  return {
-    name,
-    value: spacings[name]
-  };
+  return spacings[name];
 };
