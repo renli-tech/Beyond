@@ -36,7 +36,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "devDependencies": {
+  "dependencies": {
     "@beyond/system": "^0.0.0",
     "@beyond/shared": "^0.0.0",
     "@beyond/theme": "^0.0.0"
