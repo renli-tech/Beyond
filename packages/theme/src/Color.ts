@@ -5,6 +5,7 @@
 
 export const colors = {
   black: "#000",
+  transparent: "transparent",
   white: "#fff",
   rose: {
     50: "#fff1f2",
@@ -277,9 +278,9 @@ export interface Color {
   value: string;
 }
 
-type ColorName = keyof typeof colors;
+export type ColorName = keyof typeof colors;
 
-type ColorShade =
+export type ColorShade =
   | "50"
   | "100"
   | "200"
@@ -291,11 +292,16 @@ type ColorShade =
   | "800"
   | "900";
 
-export type ColorFunction = (name: ColorName, shade: ColorShade) => Color;
+export type ColorFunction = (name: ColorName, shade?: ColorShade) => string;
 
 export const getColor: ColorFunction = (name, shade) => {
-  return {
-    name: name,
-    value: colors[name][shade]
-  } as Color;
+  switch (name) {
+    case "black":
+    case "white":
+    case "transparent":
+      return colors[name];
+  }
+  const value = colors[name][shade || 400];
+
+  return value;
 };

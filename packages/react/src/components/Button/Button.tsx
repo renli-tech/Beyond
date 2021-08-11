@@ -1,38 +1,36 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable react/prop-types */
-import {
-  BeyondStyles,
-  createComponent,
-  makeBorder,
-  makePaddingHorizontal,
-  makePaddingVertical
-} from "@beyond/system";
-import { getSpacing } from "@beyond/theme";
-import { Property } from "csstype";
-import styled from "styled-components";
+import React from "react";
+import { BeyondStyles, createComponent } from "@beyond/system";
+import { useColor } from "@beyond/shared";
+import { ColorName, getSpacing, SpacingName } from "@beyond/theme";
 
 export interface ButtonProps {
-  color?: Property.Color;
-  backgroundColor?: Property.BackgroundColor;
-  radius?: string | number;
+  radius?: SpacingName;
+  color?: ColorName | string;
+  bgcolor?: ColorName | string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const BeyondButtonStyles: BeyondStyles = {
-  color: "white",
-  backgroundColor: "slateblue",
-  ...makePaddingHorizontal(getSpacing("6").value),
-  ...makeBorder("none", "none", "transparent", getSpacing("2").value, true),
-  ...makePaddingVertical(getSpacing("3").value)
+export const BeyondButtonStyles: BeyondStyles = {
+  border: "none",
+  padding: getSpacing("2.5"),
+  paddingLeft: getSpacing("4"),
+  paddingRight: getSpacing("4"),
+  cursor: "pointer",
+  outline: "none"
 };
 
-const ButtonBase = styled.button<ButtonProps>((props: ButtonProps) => ({
-  ...BeyondButtonStyles,
-  color: props.color || BeyondButtonStyles.color,
-  backgroundColor: props.backgroundColor || BeyondButtonStyles.backgroundColor,
-  borderRadius: props.radius
-}));
+export const Button: React.FC<ButtonProps> = props => {
+  const { radius, color, bgcolor } = props;
 
-const Button = createComponent<ButtonProps>(ButtonBase);
-export const AnotherButton = createComponent(ButtonBase);
+  const className = "";
 
-export default Button;
+  const style: BeyondStyles = {
+    ...BeyondButtonStyles,
+    borderRadius: getSpacing(radius || "2"),
+    color: useColor(color || "white"),
+    backgroundColor: useColor(bgcolor || "indigo")
+  };
+  return createComponent<ButtonProps>("button", { ...props, className }, style);
+};
+
+Button.displayName = "BeyondButton";

@@ -43,7 +43,7 @@
   },
   "include": [
     "packages/*/src"
-  ],
+, "packages/shared/providers"  ],
   "exclude": [
     "node_modules",
     "**/__tests__/**/*",

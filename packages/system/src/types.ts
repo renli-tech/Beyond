@@ -1,20 +1,15 @@
-import React from "react";
-import { StandardLonghandProperties } from "csstype";
+import * as React from "react";
 
-// type PropsOf<TTag> = TTag extends React.ElementType
-//   ? React.ComponentProps<TTag>
-//   : never;
+export type BeyondStyles = React.CSSProperties;
+
+export type BeyondComponent = React.ReactElement;
+
+export type Target = keyof JSX.IntrinsicElements | React.FunctionComponent;
 
 type RemovePropsWeControl<ElementProps, OurProps> = Omit<
   ElementProps,
   keyof OurProps
 >;
-
-// export type Props<TTag, OurProps extends {}> = RemovePropsWeControl<
-//   PropsOf<TTag>,
-//   OurProps
-// > &
-//   OurProps;
 
 export type Props<OurProps> = React.HTMLAttributes<HTMLElement> &
   React.ClassAttributes<HTMLElement> &
@@ -22,8 +17,3 @@ export type Props<OurProps> = React.HTMLAttributes<HTMLElement> &
     React.HTMLAttributes<HTMLElement> & React.ClassAttributes<HTMLElement>,
     OurProps
   >;
-
-export type BeyondStyles = StandardLonghandProperties<
-  string | number,
-  string & {}
->;
