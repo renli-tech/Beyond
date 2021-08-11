@@ -5,6 +5,7 @@
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "author": "Ope Abidemi",
+  "license": "MIT",
   "files": [
     "src",
     "dist"
@@ -35,13 +36,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "dependencies": {
+  "devDependencies": {
     "@beyond/system": "^0.0.0",
     "@beyond/shared": "^0.0.0",
-    "@beyond/theme": "^0.0.0",
-    "styled-components": "^5.3.0"
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.11"
+    "@beyond/theme": "^0.0.0"
   }
 }
