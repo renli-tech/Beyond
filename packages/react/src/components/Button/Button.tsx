@@ -1,11 +1,12 @@
-import { BeyondStyles, createComponent } from "@beyond/system";
-import { ColorName, getColor, getSpacing, SpacingName } from "@beyond/theme";
 import React from "react";
+import { BeyondStyles, createComponent } from "@beyond/system";
+import { useColor } from "@beyond/shared";
+import { ColorName, getSpacing, SpacingName } from "@beyond/theme";
 
 export interface ButtonProps {
   radius?: SpacingName;
-  color?: ColorName;
-  bgColor?: ColorName;
+  color?: ColorName | string;
+  bgColor?: ColorName | string;
 }
 
 export const BeyondButtonStyles: BeyondStyles = {
@@ -20,13 +21,15 @@ export const BeyondButtonStyles: BeyondStyles = {
 export const Button: React.FC<ButtonProps> = props => {
   const { radius, color, bgColor } = props;
 
+  const className = "";
+
   const style: BeyondStyles = {
     ...BeyondButtonStyles,
     borderRadius: getSpacing(radius || "2"),
-    color: getColor(color || "white"),
-    backgroundColor: getColor(bgColor || "indigo")
+    color: useColor(color || "white"),
+    backgroundColor: useColor(bgColor || "indigo")
   };
-  return createComponent<ButtonProps>("button", props, style);
+  return createComponent<ButtonProps>("button", { ...props, className }, style);
 };
 
 Button.displayName = "BeyondButton";

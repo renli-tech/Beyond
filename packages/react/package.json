@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@beyond/system": "^0.0.0",
+    "@beyond/shared": "^0.0.0",
     "@beyond/theme": "^0.0.0",
     "styled-components": "^5.3.0"
   },

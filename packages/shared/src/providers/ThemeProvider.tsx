@@ -17,7 +17,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = props => {
   // eslint-disable-next-line react/prop-types
   const { theme: newTheme, children } = props;
 
-  const theme = { ...outerContext?.theme, newTheme };
+  const theme = { ...outerContext?.theme, ...newTheme };
 
   return (
     <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
