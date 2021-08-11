@@ -29,4 +29,4 @@ export const Button: React.FC<ButtonProps> = props => {
   return createComponent<ButtonProps>("button", props, style);
 };
 
-Button.displayName = "BeyondButton"
+Button.displayName = "BeyondButton";

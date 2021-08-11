@@ -1,12 +1,12 @@
 export type BaseTheme = {
-    [key: string]: any
-}
+  [key: string]: unknown;
+};
 
 export type Theme = BaseTheme & {
-    colors?: {
-        [key: string]: any
-    },
-    spacing?: {
-        [key: string]: any
-    }
-}
+  colors?: {
+    [key: string]: unknown;
+  };
+  spacing?: {
+    [key: string]: unknown;
+  };
+};
