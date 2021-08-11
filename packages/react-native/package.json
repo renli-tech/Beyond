@@ -32,7 +32,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@beyond/system": "^0.0.1",
+    "@beyond/system": "^0.0.0",
     "@beyond/theme": "^0.0.0"
   }
 }

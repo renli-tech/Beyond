@@ -1,14 +1,15 @@
 import * as React from "react";
-import { generateId } from "./utils";
-import { Props } from "./types";
+import { BeyondComponent, BeyondStyles, Props, Target } from "./types";
 
-export const createComponent = <OurProps extends {}>(
-  view: React.ComponentType<any>
-) => (props: Props<OurProps>): React.ReactElement => {
+export const createComponent = <OurProps>(
+  target: Target,
+  props: Props<OurProps>,
+  style: BeyondStyles
+): BeyondComponent => {
   const newProps: Props<OurProps> = {
-    id: generateId(view)
-  } as Props<OurProps>;
-  const res = React.createElement(view, newProps, props?.children);
+    ...props,
+    style
+  };
 
-  return res;
+  return React.createElement(target, newProps, props.children);
 };
