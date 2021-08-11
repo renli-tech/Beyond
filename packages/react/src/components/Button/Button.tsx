@@ -6,7 +6,8 @@ import { ColorName, getSpacing, SpacingName } from "@beyond/theme";
 export interface ButtonProps {
   radius?: SpacingName;
   color?: ColorName | string;
-  bgColor?: ColorName | string;
+  bgcolor?: ColorName | string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const BeyondButtonStyles: BeyondStyles = {
@@ -19,7 +20,7 @@ export const BeyondButtonStyles: BeyondStyles = {
 };
 
 export const Button: React.FC<ButtonProps> = props => {
-  const { radius, color, bgColor } = props;
+  const { radius, color, bgcolor } = props;
 
   const className = "";
 
@@ -27,7 +28,7 @@ export const Button: React.FC<ButtonProps> = props => {
     ...BeyondButtonStyles,
     borderRadius: getSpacing(radius || "2"),
     color: useColor(color || "white"),
-    backgroundColor: useColor(bgColor || "indigo")
+    backgroundColor: useColor(bgcolor || "indigo")
   };
   return createComponent<ButtonProps>("button", { ...props, className }, style);
 };

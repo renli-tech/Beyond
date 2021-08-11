@@ -13,5 +13,5 @@ export const createComponent = <OurProps>(
     style
   };
 
-  return React.createElement(target, newProps, props.children);
+  return React.createElement<Props<OurProps>>(target, newProps, props.children);
 };
