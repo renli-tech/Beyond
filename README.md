@@ -5,7 +5,6 @@
 <p align="center">
 A design system for Renli</p>
 
-<br/>
 
 ## Packages
 
