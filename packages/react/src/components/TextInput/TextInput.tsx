@@ -5,7 +5,6 @@ import React from "react";
 export interface TextInputProps {
   bgColor?: ColorName;
   color?: ColorName;
-  value?: string;
 }
 
 export const BeyondTextInputStyles: BeyondStyles = {
@@ -17,7 +16,7 @@ export const BeyondTextInputStyles: BeyondStyles = {
   width: getSpacing("40")
 };
 export const TextInput: React.FC<TextInputProps> = props => {
-  const { bgColor, color, value } = props;
+  const { bgColor, color } = props;
   const style: BeyondStyles = {
     ...BeyondTextInputStyles,
     backgroundColor: getColor(bgColor || "indigo"),

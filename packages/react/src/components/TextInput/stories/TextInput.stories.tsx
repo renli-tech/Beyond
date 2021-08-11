@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react";
 import { Meta } from "@storybook/react";
 import { TextInput } from "../TextInput";
@@ -6,4 +7,6 @@ export default {
   component: TextInput
 } as Meta;
 
-export const Basic = () => <TextInput />;
+export const Basic = () => {
+  return <TextInput />;
+};

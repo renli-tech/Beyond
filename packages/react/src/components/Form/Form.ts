@@ -7,7 +7,7 @@ export interface FormProps {
 }
 
 export const Form: React.FC<FormProps> = props => {
-  return createComponent<FormProps>("div", { ...props }, {});
+  return createComponent<FormProps>("form", { ...props }, {});
 };
 
 Form.displayName = "BeyondForm";
