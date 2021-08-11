@@ -10,6 +10,9 @@ type RemovePropsWeControl<ElementProps, OurProps> = Omit<
   ElementProps,
   keyof OurProps
 >;
+export type PropsOf<
+  TTag extends keyof JSX.IntrinsicElements
+> = React.ComponentProps<TTag>;
 
 export type Props<OurProps> = React.HTMLAttributes<HTMLElement> &
   React.ClassAttributes<HTMLElement> &

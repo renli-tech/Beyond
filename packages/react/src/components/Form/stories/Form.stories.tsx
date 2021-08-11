@@ -2,7 +2,8 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import { Form } from "../Form";
-import { Button } from "../../Button/Button";
+import { Button } from "../../Button";
+import { TextInput } from "../../TextInput";
 export default {
   title: "Form",
   component: Form
@@ -11,8 +12,8 @@ export default {
 export const Basic = () => {
   return (
     <Form>
-      <Button>This is a button inside a form</Button>
-      <Button>Hello This is form</Button>
+      <TextInput placeholder='Username' />
+      <Button>Submit</Button>
     </Form>
   );
 };
