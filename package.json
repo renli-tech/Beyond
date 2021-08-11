@@ -73,16 +73,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn fix:code",
-      "git add"
+      "yarn fix:code"
     ],
     "*.{md,css,scss,yaml,yml}": [
-      "yarn fix:other",
-      "git add"
+      "yarn fix:other"
     ],
     "*.svg": [
-      "yarn fix:svg",
-      "git add"
+      "yarn fix:svg"
     ]
   },
   "browserslist": [
