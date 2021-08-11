@@ -8,5 +8,5 @@ export default {
 } as Meta;
 
 export const Basic = () => {
-  return <TextInput />;
+  return <TextInput placeholder='Write Something' placeholderColor='white' />;
 };

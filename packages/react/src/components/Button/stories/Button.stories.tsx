@@ -5,11 +5,12 @@ import { Button } from "../Button";
 import { ThemeProvider } from "@beyond/shared";
 export default {
   title: "Button",
-  component: Button,
-  parameters: { actions: { argTypesRegex: "^on.*" } }
+  component: Button
 } as Meta;
 
-export const Basic = () => <Button>Hello</Button>;
+export const Basic = () => {
+  return <Button>Hello</Button>;
+};
 export const ThemedButton = () => {
   return (
     <ThemeProvider
@@ -19,7 +20,7 @@ export const ThemedButton = () => {
         }
       }}
     >
-      <Button bgcolor='sky' onClick={e => console.log("clicked", e)}>
+      <Button bgcolor='primary' onClick={e => console.log("clicked", e)}>
         Hello World
       </Button>
     </ThemeProvider>

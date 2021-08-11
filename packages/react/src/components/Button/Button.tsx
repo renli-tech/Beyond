@@ -1,13 +1,12 @@
 import React from "react";
-import { BeyondStyles, createComponent } from "@beyond/system";
-import { useColor } from "@beyond/shared";
+import { BeyondStyles, createComponent, PropsOf } from "@beyond/system";
+import { useColor, useSpacing } from "@beyond/shared";
 import { ColorName, getSpacing, SpacingName } from "@beyond/theme";
 
-export interface ButtonProps {
+export interface ButtonProps extends PropsOf<"button"> {
   radius?: SpacingName;
   color?: ColorName | string;
   bgcolor?: ColorName | string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const BeyondButtonStyles: BeyondStyles = {
@@ -15,6 +14,7 @@ export const BeyondButtonStyles: BeyondStyles = {
   padding: getSpacing("2.5"),
   paddingLeft: getSpacing("4"),
   paddingRight: getSpacing("4"),
+  margin: getSpacing("3"),
   cursor: "pointer",
   outline: "none"
 };
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = props => {
 
   const style: BeyondStyles = {
     ...BeyondButtonStyles,
-    borderRadius: getSpacing(radius || "2"),
+    borderRadius: useSpacing(radius || "2"),
     color: useColor(color || "white"),
     backgroundColor: useColor(bgcolor || "indigo")
   };

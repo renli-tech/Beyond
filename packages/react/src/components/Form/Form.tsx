@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { createComponent } from "@beyond/system";
+import { createComponent, PropsOf } from "@beyond/system";
 
-export interface FormProps {
+export interface FormProps extends PropsOf<"form"> {
   children: React.ReactNode[];
 }
 
