@@ -46,7 +46,7 @@ import { Button } from "@beyond/react";
 function App() {
   return (
         <Button>
-            Hello Welcome to Beyond Ui
+            Hello,Welcome to Beyond Ui
         <Button>
       )
 };
