@@ -3,11 +3,11 @@
 // const { getPackages } = require(`@lerna/project`);
 // const PackageGraph = require(`@lerna/package-graph`);
 // const semver = require(`semver`);
-import { writeFileSync } from "fs";
-import yargs from "yargs";
-import { getPackages } from "@lerna/project";
-import PackageGraph from "@lerna/package-graph";
-import semver from "semver";
+const fs = require("fs");
+const yargs = require("yargs");
+const { getPackages } = require("@lerna/project");
+const PackageGraph = require("@lerna/package-graph");
+const semver = require("semver");
 
 let warned = false;
 const argv = yargs
@@ -23,7 +23,7 @@ const argv = yargs
 getPackages(process.cwd()).then(packages => {
   const graph = new PackageGraph(packages, `allDependencies`, true);
 
-  graph.forEach((pkgNode, name) => {
+  graph.forEach(pkgNode => {
     let outdated = Array.from(pkgNode.localDependencies.values()).filter(
       localDep => {
         return !semver.satisfies(
@@ -65,7 +65,7 @@ getPackages(process.cwd()).then(packages => {
         });
       });
 
-      writeFileSync(
+      fs.writeFileSync(
         `${pkg.location}/package.json`,
         JSON.stringify(next, null, 2)
       );

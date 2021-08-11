@@ -1,5 +1,5 @@
 {
-  "name": "@beyond/react",
+  "name": "@beyond/shared",
   "version": "0.0.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -29,16 +29,11 @@
       "last 1 safari version"
     ]
   },
-  "peerDependencies": {
-    "react": "^16 || ^17 || ^18",
-    "react-dom": "^16 || ^17 || ^18"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@beyond/system": "^0.0.0",
-    "@beyond/shared": "^0.0.0",
-    "@beyond/theme": "^0.0.0"
+    "@beyond/theme": "^0.0.0",
+    "@beyond/system": "^0.0.0"
   }
 }
