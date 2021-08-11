@@ -11,9 +11,10 @@ export interface ButtonProps {
 export const BeyondButtonStyles: BeyondStyles = {
   border: "none",
   padding: getSpacing("2.5"),
-  paddingLeft: getSpacing("3"),
-  paddingRight: getSpacing("3"),
-  cursor: "pointer"
+  paddingLeft: getSpacing("4"),
+  paddingRight: getSpacing("4"),
+  cursor: "pointer",
+  outline: "none"
 };
 
 export const Button: React.FC<ButtonProps> = props => {
@@ -27,3 +28,5 @@ export const Button: React.FC<ButtonProps> = props => {
   };
   return createComponent<ButtonProps>("button", props, style);
 };
+
+Button.displayName = "BeyondButton"
