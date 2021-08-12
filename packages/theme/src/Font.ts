@@ -75,17 +75,17 @@ export type FontWeightValue = keyof typeof fontWeight;
 
 export type FontSizeFunction = (
   size: FontSizeValue
-) => { size: string; lineHeight: string };
+) => { fontSize: string; lineHeight: string };
 
 export const getFontFamily = (fam: FontFamilyValue) => {
-  return fontFamily[fam];
+  return fontFamily[fam].toString();
 };
 
 export const getFontSize: FontSizeFunction = (size: FontSizeValue) => {
   const sz = fontSize[size];
 
   return {
-    size: sz[0],
+    fontSize: sz[0],
     lineHeight: sz[1].lineHeight
   };
 };

@@ -11,6 +11,17 @@ export default {
 export const Basic = () => {
   return <Button>Hello</Button>;
 };
+
+export const SizedButtons = () => {
+  return (
+    <div>
+      <Button size='xs'>Extra small button</Button>
+      <Button size='sm'>Small button</Button>
+      <Button size='base'>Default button</Button>
+      <Button size='3xl'> Three times Extra Large Button</Button>
+    </div>
+  );
+};
 export const ThemedButton = () => {
   return (
     <ThemeProvider
@@ -26,4 +37,3 @@ export const ThemedButton = () => {
     </ThemeProvider>
   );
 };
-// export const RoundedBasic = () => <AnotherButton>Another Basic</AnotherButton>;
