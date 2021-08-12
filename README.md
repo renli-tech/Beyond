@@ -55,7 +55,7 @@ function App() {
 3. You can also define your own Theme:
 
 ```jsx
-import { ThemeProvider } from "@beyond/react";
+import { ThemeProvider, Button } from "@beyond/react";
 
 function App() {
   return (
