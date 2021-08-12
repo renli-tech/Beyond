@@ -10,7 +10,7 @@ export const createComponent = <OurProps>(
   const newProps: Props<OurProps> = {
     ...props,
     id: generateId(),
-    style
+    style: { ...style, ...props.style }
   };
 
   return React.createElement<Props<OurProps>>(target, newProps, props.children);
