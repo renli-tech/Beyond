@@ -34,7 +34,7 @@ $ yarn add @beyond/react
 
 # or
 
-$ npm i @chakra-ui/react
+$ npm i @beyond/react
 ```
 
 2. Now you can start importing components:
@@ -55,7 +55,7 @@ function App() {
 3. You can also define your own Theme:
 
 ```jsx
-import { ThemeProvider } from "@beyond/react";
+import { ThemeProvider, Button } from "@beyond/react";
 
 function App() {
   return (
