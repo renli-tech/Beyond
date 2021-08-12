@@ -1,13 +1,13 @@
 import React from "react";
-import { BeyondStyles, createComponent, PropsOf } from "@beyond/system";
-import { useColor, useSpacing } from "@beyond/shared";
 import {
-  ColorName,
-  getSpacing,
-  SpacingName,
-  getFontSize,
-  getFontFamily
-} from "@beyond/theme";
+  BeyondStyles,
+  createComponent,
+  PropsOf,
+  createStyles
+} from "@beyond/system";
+import { useColor, useSpacing } from "@beyond/shared";
+import { ColorName, getSpacing, SpacingName, getFontSize } from "@beyond/theme";
+import { GlobalStyles } from "../../GlobalStyles";
 
 export const ButtonSizes = {
   xs: getFontSize("xs"),
@@ -24,6 +24,7 @@ export const ButtonSizes = {
   "8xl": getFontSize("8xl"),
   "9xl": getFontSize("9xl")
 } as const;
+
 export interface ButtonProps extends PropsOf<"button"> {
   radius?: SpacingName;
   color?: ColorName | string;
@@ -31,23 +32,23 @@ export interface ButtonProps extends PropsOf<"button"> {
   bgcolor?: ColorName | string;
 }
 
-export const BeyondButtonStyles: BeyondStyles = {
-  border: "none",
-  padding: getSpacing("2.5"),
-  paddingLeft: getSpacing("5"),
-  paddingRight: getSpacing("5"),
-  margin: getSpacing("3"),
-  cursor: "pointer",
-  fontFamily: getFontFamily("sans"),
-  outline: "none"
-};
+export const BeyondButtonStyles = createStyles<BeyondStyles>(
+  {
+    border: "none",
+    padding: getSpacing("2.5"),
+    paddingLeft: getSpacing("5"),
+    paddingRight: getSpacing("5"),
+    margin: getSpacing("3"),
+    cursor: "pointer",
+    outline: "none"
+  },
+  GlobalStyles
+);
 
 export const Button: React.FC<ButtonProps> = props => {
   const { radius, color, bgcolor, size } = props;
 
   const className = "";
-
-  console.log(getFontFamily("sans"));
 
   const buttonSize = ButtonSizes[size || "base"];
 

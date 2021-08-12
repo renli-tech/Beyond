@@ -77,7 +77,7 @@ export type FontSizeFunction = (
   size: FontSizeValue
 ) => { fontSize: string; lineHeight: string };
 
-export const getFontFamily = (fam: FontFamilyValue) => {
+export const getFontFamily = (fam: FontFamilyValue): string => {
   return fontFamily[fam].toString();
 };
 

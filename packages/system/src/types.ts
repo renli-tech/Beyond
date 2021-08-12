@@ -1,6 +1,14 @@
 import * as React from "react";
 
-export type BeyondStyles = React.CSSProperties;
+export type OveriddenStylesProperties = {
+  fontFamily?: string;
+};
+
+export type BeyondStyles = Omit<
+  React.CSSProperties,
+  keyof OveriddenStylesProperties
+> &
+  OveriddenStylesProperties;
 
 export type BeyondComponent = React.ReactElement;
 
