@@ -34,7 +34,7 @@ $ yarn add @beyond/react
 
 # or
 
-$ npm i @chakra-ui/react
+$ npm i @beyond/react
 ```
 
 2. Now you can start importing components:
