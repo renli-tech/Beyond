@@ -1,20 +1,22 @@
 ![GitHub](https://img.shields.io/github/license/renli-tech/Beyond?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/renli-tech/Beyond?style=flat-square)
 
+<img src="./logo/light.png" alt="beyond-logo"/>
+<!-- <img src="./logo/dark.png" alt="beyond-logo"/> -->
+
 <h1 align="center">Beyond Design System</h1>
 <p align="center">
 A design system for Renli</p>
 
-
 ## Packages
 
-| package  | version     
-|-------------- |  -------------- |
-| [@beyond/shared](https://github.com/renli-tech/Beyond/tree/master/packages/shared)    | 0.0.0    
-| [@beyond/react](https://github.com/renli-tech/Beyond/tree/master/packages/react)    | 0.0.0    
-| [@beyond/react-native](https://github.com/renli-tech/Beyond/tree/master/packages/react-native)    | 0.0.0    
-| [@beyond/theme](https://github.com/renli-tech/Beyond/tree/master/packages/theme)    | 0.0.0    
-| [@beyond/system](https://github.com/renli-tech/Beyond/tree/master/packages/system)    | 0.0.0    
+| package                                         | version |
+| ----------------------------------------------- | ------- |
+| [@beyond/shared](./packages/shared)             | 0.0.0   |
+| [@beyond/react](./packages/react)               | 0.0.0   |
+| [@beyond/react-native](./packages/react-native) | 0.0.0   |
+| [@beyond/theme](./packages/theme)               | 0.0.0   |
+| [@beyond/system](./packages/system)             | 0.0.0   |
 
 <br/>
 
@@ -80,7 +82,6 @@ function App() {
 
 😎 Support for React-Native is Coming Soon...
 
-
 <br/>
 
 ## Contributing
@@ -90,4 +91,4 @@ Feel like contributing? That's awesome! We have a
 
 ## License
 
-[License MIT](https://github.com/renli-tech/Beyond/blob/master/LICENSE) © [Renli](https://github.com/renli-tech)
+[License MIT](./LICENSE) © [Renli](https://github.com/renli-tech)
