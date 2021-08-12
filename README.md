@@ -18,7 +18,7 @@ A design system for Renli</p>
 
 <br/>
 
-## Usage
+## ✌ Usage
 
 <br/>
 
@@ -78,7 +78,7 @@ function App() {
 
 <br/>
 
-Support for React-Native is Coming Soon...
+😎 Support for React-Native is Coming Soon...
 
 
 <br/>
