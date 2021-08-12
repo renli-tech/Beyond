@@ -1,5 +1,4 @@
 import * as React from "react";
-import { validate } from "uuid";
 
 export interface FormConfig {
   initialValues: {
