@@ -319,7 +319,7 @@ export const getColor: ColorFunction = (name, shade) => {
     case "transparent":
       return colors[name];
   }
-  const value = colors[name][shade || 400];
+  const value = colors[name][shade || 500];
 
   return value;
 };

@@ -73,6 +73,8 @@ export const height = {
   screen: "100vh"
 };
 
+export type Sizing = "xs" | "sm" | "md" | "base" | "lg" | "xl" | "2xl";
+
 export type ScaleValue = keyof typeof scale;
 export type WidthValue = keyof typeof width;
 export type HeightValue = keyof typeof height;
