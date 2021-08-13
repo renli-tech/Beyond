@@ -24,7 +24,9 @@ export const TextInput: React.FC<TextInputProps> = props => {
     border: "none",
     outline: "none",
     borderRadius: useSpacing("3"),
-    padding: useSpacing("2.5"),
+    padding: useSpacing("2"),
+    paddingLeft: useSpacing("4"),
+    paddingRight: useSpacing("4"),
     width: useSpacing("40"),
     color: useColor(color || "black"),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

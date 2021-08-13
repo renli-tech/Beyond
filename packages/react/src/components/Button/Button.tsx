@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   BeyondStyles,
   createComponent,
@@ -31,14 +31,24 @@ export interface ButtonProps extends PropsOf<"button"> {
   color?: ColorName | string;
   backgroundColorScheme?: ColorName;
   isLoading?: boolean;
+  loadingText?: string;
   variant?: "outline" | "dashed";
   size?: keyof typeof ButtonSizes;
   bgcolor?: ColorName | string;
 }
 
 export const Button: React.FC<ButtonProps> = props => {
-  const { radius, color, bgcolor, size, backgroundColorScheme } = props;
+  const {
+    radius,
+    color,
+    bgcolor,
+    size,
+    backgroundColorScheme
+    // isLoading
+  } = props;
   const buttonSize = ButtonSizes[size || "base"];
+
+  // const [loading, setLoading] = React.useState(isLoading);
 
   const className = css({
     border: "none",
