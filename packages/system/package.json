@@ -36,5 +36,6 @@
   },
   "dependencies": {
     "@beyond/theme": "^0.0.1"
-  }
+  },
+  "gitHead": "469b59695ae112f9003581ccffa840eaf19d713d"
 }
