@@ -6,8 +6,9 @@ import {
   createStyles
 } from "@beyond/system";
 import { useColor, useSpacing } from "@beyond/shared";
-import { ColorName, getSpacing, SpacingName, getFontSize } from "@beyond/theme";
+import { ColorName, SpacingName, getFontSize, getColor } from "@beyond/theme";
 import { GlobalStyles } from "../../GlobalStyles";
+import { css } from "@emotion/css";
 
 export const ButtonSizes = {
   xs: getFontSize("xs"),
@@ -28,37 +29,44 @@ export const ButtonSizes = {
 export interface ButtonProps extends PropsOf<"button"> {
   radius?: SpacingName;
   color?: ColorName | string;
+  backgroundColorScheme?: ColorName;
+  isLoading?: boolean;
+  variant?: "outline" | "dashed";
   size?: keyof typeof ButtonSizes;
   bgcolor?: ColorName | string;
 }
 
-export const BeyondButtonStyles = createStyles<BeyondStyles>(
-  {
-    border: "none",
-    padding: getSpacing("2.5"),
-    paddingLeft: getSpacing("5"),
-    paddingRight: getSpacing("5"),
-    margin: getSpacing("3"),
-    cursor: "pointer",
-    outline: "none"
-  },
-  GlobalStyles
-);
-
 export const Button: React.FC<ButtonProps> = props => {
-  const { radius, color, bgcolor, size } = props;
-
-  const className = "";
-
+  const { radius, color, bgcolor, size, backgroundColorScheme } = props;
   const buttonSize = ButtonSizes[size || "base"];
 
-  const style: BeyondStyles = {
-    ...BeyondButtonStyles,
+  const className = css({
+    border: "none",
+    padding: useSpacing("2"),
+    paddingLeft: useSpacing("4"),
+    paddingRight: useSpacing("4"),
+    margin: useSpacing("3"),
+    cursor: "pointer",
+    outline: "none",
     borderRadius: useSpacing(radius || "2"),
     color: useColor(color || "white"),
-    backgroundColor: useColor(bgcolor || "indigo"),
-    ...buttonSize
-  };
+    backgroundColor: useColor(
+      backgroundColorScheme ? backgroundColorScheme : bgcolor || "indigo"
+    ),
+    ":hover": {
+      backgroundColor: getColor(backgroundColorScheme || "indigo", "700"),
+      transition: "all ease-in-out .1s"
+    }
+  });
+
+  // sizing props are passed here to overide the default sizings
+  const style = createStyles<BeyondStyles>(
+    {
+      ...buttonSize
+    },
+    GlobalStyles
+  );
+
   return createComponent<ButtonProps>("button", { ...props, className }, style);
 };
 

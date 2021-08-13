@@ -9,13 +9,17 @@ export default {
 } as Meta;
 
 export const Basic = () => {
-  return <Button>Hello</Button>;
+  return (
+    <Button radius='12' backgroundColorScheme='green'>
+      Hello
+    </Button>
+  );
 };
 
 export const SizedButtons = () => {
   return (
     <div>
-      <Button size='xs'>Extra small button</Button>
+      <Button size='xs'>E</Button>
       <Button size='sm'>Small button</Button>
       <Button size='base'>Default button</Button>
       <Button size='3xl'> Three times Extra Large Button</Button>

@@ -32,7 +32,8 @@ export const spacings = {
   "64": "16rem",
   "72": "18rem",
   "80": "20rem",
-  "96": "24rem"
+  "96": "24rem",
+  full: "100%"
 } as const;
 
 export type SpacingName = keyof typeof spacings;
