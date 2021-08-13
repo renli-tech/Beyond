@@ -4,38 +4,44 @@ import {
   PropsOf,
   createStyles
 } from "@beyond/system";
-import { ColorName, getSpacing } from "@beyond/theme";
-import { useColor } from "@beyond/shared";
+import { ColorName, getColor } from "@beyond/theme";
+import { useColor, useSpacing } from "@beyond/shared";
 import React from "react";
 import { GlobalStyles } from "../../GlobalStyles";
-
+import { css } from "@emotion/css";
 export interface TextInputProps extends PropsOf<"input"> {
-  bgColor?: ColorName | string;
+  bgcolor?: ColorName | string;
   color?: ColorName | string;
-  placeholder?: string;
-  placeholderColor?: string;
+  placeHolderColor?: string;
 }
 
-export const BeyondTextInputStyles = createStyles<BeyondStyles>(
-  {
+export const TextInput: React.FC<TextInputProps> = props => {
+  const { bgcolor, color, placeHolderColor } = props;
+
+  const style = createStyles<BeyondStyles>({}, GlobalStyles);
+
+  const className = css({
     border: "none",
     outline: "none",
-    borderRadius: getSpacing("3"),
-    padding: getSpacing("2.5"),
-    width: getSpacing("40")
-  },
-  GlobalStyles
-);
-export const TextInput: React.FC<TextInputProps> = props => {
-  const { bgColor, color } = props;
+    borderRadius: useSpacing("3"),
+    padding: useSpacing("2.5"),
+    width: useSpacing("40"),
+    color: useColor(color || "black"),
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("gray", "100"),
+    "::placeholder": {
+      color: placeHolderColor
+        ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          useColor(placeHolderColor!)
+        : getColor("gray", "400")
+    }
+  });
 
-  const style: BeyondStyles = {
-    ...BeyondTextInputStyles,
-    backgroundColor: useColor(bgColor || "gray"),
-    color: useColor(color || "white")
-  };
-
-  return createComponent<TextInputProps>("input", props, style);
+  return createComponent<TextInputProps>(
+    "input",
+    { ...props, className },
+    style
+  );
 };
 
 TextInput.displayName = "TextInput";
