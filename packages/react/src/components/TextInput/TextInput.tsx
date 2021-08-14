@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
   createComponent,
   BeyondStyles,
@@ -12,7 +13,7 @@ import { css } from "@emotion/css";
 export interface TextInputProps extends PropsOf<"input"> {
   bgcolor?: ColorName | string;
   color?: ColorName | string;
-  placeHolderColor?: string;
+  placeHolderColor?: ColorName | string;
 }
 
 export const TextInput: React.FC<TextInputProps> = props => {
@@ -33,8 +34,7 @@ export const TextInput: React.FC<TextInputProps> = props => {
     backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("gray", "100"),
     "::placeholder": {
       color: placeHolderColor
-        ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          useColor(placeHolderColor!)
+        ? useColor(placeHolderColor!)
         : getColor("gray", "400")
     }
   });
