@@ -1,11 +1,12 @@
 {
   "name": "@beyond/system",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
-  "author": "Ope Abidemi",
+  "repository": "git://github.com/renli-tech/Beyond.git",
+  "author": "opeabidemi <opeabidemi@gmail.com>",
   "license": "MIT",
   "files": [
     "src",
@@ -35,7 +36,6 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@beyond/theme": "^0.0.1"
-  },
-  "gitHead": "469b59695ae112f9003581ccffa840eaf19d713d"
+    "@beyond/theme": "^0.0.0"
+  }
 }
