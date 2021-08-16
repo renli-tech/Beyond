@@ -42,6 +42,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
   );
 
   const className = css({
+    cursor: "pointer",
     borderRadius: useSpacing("full"),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white")
