@@ -46,7 +46,7 @@ export const Button: React.FC<ButtonProps> = props => {
     backgroundColorScheme
     // isLoading
   } = props;
-  const buttonSize = ButtonSizes[size || "base"];
+  const buttonSize = ButtonSizes[size || "sm"];
 
   // const [loading, setLoading] = React.useState(isLoading);
 
