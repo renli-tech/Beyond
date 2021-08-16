@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
-  "author": "Ope Abidemi",
+  "repository": "git://github.com/renli-tech/Beyond.git",
+  "author": "opeabidemi <opeabidemi@gmail.com>",
   "license": "MIT",
   "files": [
     "src",
