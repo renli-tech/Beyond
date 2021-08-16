@@ -3,7 +3,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 import { FlexBox } from "../FlexBox";
 export default {
-  title: "FlexBox",
+  title: "Flex Box",
   component: FlexBox
 } as Meta;
 
