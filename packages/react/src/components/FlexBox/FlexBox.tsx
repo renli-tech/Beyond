@@ -14,17 +14,19 @@ export interface FlexBoxProps extends PropsOf<"div"> {
   direction?: Property.FlexDirection;
   wrap?: Property.FlexWrap;
   grow?: 0 | 1;
+  contents?: Property.JustifyContent;
 }
 
 export const FlexBox: React.FC<FlexBoxProps> = props => {
-  const { alignItems, direction, wrap, grow } = props;
+  const { alignItems, direction, wrap, grow, contents } = props;
 
   const className = css({
     display: "flex",
     alignItems,
     flexDirection: direction,
     flexWrap: wrap,
-    flexGrow: grow
+    flexGrow: grow,
+    justifyContent: contents
   });
 
   // sizing props are passed here to overide the default sizings
