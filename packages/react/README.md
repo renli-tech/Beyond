@@ -1,6 +1,3 @@
-<img src="../../logo/light.png" alt="beyond-logo"/>
-<!-- <img src="./logo/dark.png" alt="beyond-logo"/> -->
-
 <h1 align="center">Beyond React Component Library</h1>
 <p align="center">
 A React Component Library from the Beyond design system</p>
