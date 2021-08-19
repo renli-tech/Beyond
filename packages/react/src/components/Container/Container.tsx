@@ -2,7 +2,8 @@ import {
   createComponent,
   BeyondStyles,
   PropsOf,
-  createStyles
+  createStyles,
+  SystemProps
 } from "@beyond/system";
 import { ColorName, getColor, getSpacing } from "@beyond/theme";
 import { useColor, useSpacing } from "@beyond/shared";
@@ -10,10 +11,7 @@ import React from "react";
 import { css } from "@emotion/css";
 import { GlobalStyles } from "../../GlobalStyles";
 
-export interface ContainerProps extends PropsOf<"div"> {
-  bgcolor?: ColorName | string;
-  color?: ColorName | string;
-}
+export interface ContainerProps extends SystemProps, PropsOf<"div"> {}
 
 export const Container: React.FC<ContainerProps> = props => {
   const { bgcolor, color } = props;
@@ -34,3 +32,5 @@ export const Container: React.FC<ContainerProps> = props => {
 
   return createComponent<ContainerProps>("div", { ...props, className }, style);
 };
+
+Container.displayName = "BeyondContainer";

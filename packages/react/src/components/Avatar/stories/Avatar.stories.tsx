@@ -13,17 +13,32 @@ export const Basic = () => {
     <Container bgcolor='red'>
       <Avatar
         src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
+        size='xs'
+        title='Renli Logo'
+      />
+      <Avatar
+        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
+        size='sm'
+        title='Renli Logo'
+      />
+      <Avatar
+        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
+        size='base'
+        title='Renli Logo'
+      />
+      <Avatar
+        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
         size='lg'
         title='Renli Logo'
       />
       <Avatar
         src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
-        size='4xl'
+        size='2xl'
         title='Renli Logo'
       />
       <Avatar
         src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
-        size='8xl'
+        size='3xl'
         title='Renli Logo'
       />
     </Container>

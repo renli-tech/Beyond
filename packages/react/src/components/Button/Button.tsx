@@ -3,7 +3,8 @@ import {
   BeyondStyles,
   createComponent,
   PropsOf,
-  createStyles
+  createStyles,
+  SystemProps
 } from "@beyond/system";
 import { useColor, useSpacing } from "@beyond/shared";
 import { ColorName, SpacingName, getFontSize, getColor } from "@beyond/theme";
@@ -26,15 +27,13 @@ export const ButtonSizes = {
   "9xl": getFontSize("9xl")
 } as const;
 
-export interface ButtonProps extends PropsOf<"button"> {
+export interface ButtonProps extends SystemProps, PropsOf<"button"> {
   radius?: SpacingName;
-  color?: ColorName | string;
   backgroundColorScheme?: ColorName;
   isLoading?: boolean;
   loadingText?: string;
   variant?: "outline" | "dashed";
   size?: keyof typeof ButtonSizes;
-  bgcolor?: ColorName | string;
 }
 
 export const Button: React.FC<ButtonProps> = props => {
@@ -55,7 +54,7 @@ export const Button: React.FC<ButtonProps> = props => {
     padding: useSpacing("2"),
     paddingLeft: useSpacing("4"),
     paddingRight: useSpacing("4"),
-    margin: useSpacing("3"),
+    margin: buttonSize.fontSize,
     cursor: "pointer",
     outline: "none",
     borderRadius: useSpacing(radius || "2"),

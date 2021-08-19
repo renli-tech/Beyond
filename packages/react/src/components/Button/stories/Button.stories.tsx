@@ -19,11 +19,7 @@ export const Basic = () => {
 export const SizedButtons = () => {
   return (
     <div>
-      <Button size='xs'>E</Button>
-      <Button size='sm'>Small button</Button>
-      <Button size='base'>Default button</Button>
-      <Button size='3xl'> Three times Extra Large Button</Button>
-    </div>
+      <Button size='xs    </div>
   );
 };
 export const ThemedButton = () => {
@@ -35,7 +31,7 @@ export const ThemedButton = () => {
         }
       }}
     >
-      <Button bgcolor='primary' onClick={e => console.log("clicked", e)}>
+      <Button bgcolor='green' onClick={e => console.log("clicked", e)}>
         Hello World
       </Button>
     </ThemeProvider>

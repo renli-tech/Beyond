@@ -46,4 +46,4 @@ export const TextInput: React.FC<TextInputProps> = props => {
   );
 };
 
-TextInput.displayName = "TextInput";
+TextInput.displayName = "BeyondTextInput";
