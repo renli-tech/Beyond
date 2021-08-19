@@ -4,7 +4,8 @@ import {
   createComponent,
   PropsOf,
   createStyles,
-  SystemProps
+  SystemProps,
+  extractCssInterpolationFromProps
 } from "@beyond/system";
 import { useColor, useSpacing } from "@beyond/shared";
 import { ColorName, SpacingName, getFontSize, getColor } from "@beyond/theme";
@@ -27,7 +28,9 @@ export const ButtonSizes = {
   "9xl": getFontSize("9xl")
 } as const;
 
-export interface ButtonProps extends SystemProps, PropsOf<"button"> {
+export interface ButtonProps
+  extends SystemProps,
+    Omit<PropsOf<"button">, keyof SystemProps> {
   radius?: SpacingName;
   backgroundColorScheme?: ColorName;
   isLoading?: boolean;
@@ -49,6 +52,8 @@ export const Button: React.FC<ButtonProps> = props => {
 
   // const [loading, setLoading] = React.useState(isLoading);
 
+  const cssInter = extractCssInterpolationFromProps(props);
+
   const className = css({
     border: "none",
     padding: useSpacing("2"),
@@ -65,7 +70,8 @@ export const Button: React.FC<ButtonProps> = props => {
     ":hover": {
       backgroundColor: getColor(backgroundColorScheme || "indigo", "700"),
       transition: "all ease-in-out .1s"
-    }
+    },
+    ...(cssInter as {})
   });
 
   // sizing props are passed here to overide the default sizings
@@ -78,5 +84,3 @@ export const Button: React.FC<ButtonProps> = props => {
 
   return createComponent<ButtonProps>("button", { ...props, className }, style);
 };
-
-Button.displayName = "BeyondButton";

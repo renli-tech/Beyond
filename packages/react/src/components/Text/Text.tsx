@@ -3,9 +3,10 @@ import {
   BeyondStyles,
   PropsOf,
   createStyles,
-  SystemProps
+  SystemProps,
+  extractCssInterpolationFromProps
 } from "@beyond/system";
-import { ColorName, getColor, getFontSize } from "@beyond/theme";
+import { getColor, getFontSize } from "@beyond/theme";
 import { useColor } from "@beyond/shared";
 import React from "react";
 import { GlobalStyles } from "../../GlobalStyles";
@@ -26,7 +27,9 @@ export const TextSizes = {
   "9xl": getFontSize("9xl")
 } as const;
 
-export interface TextProps extends SystemProps, PropsOf<"span"> {
+export interface TextProps
+  extends SystemProps,
+    Omit<PropsOf<"span">, keyof SystemProps> {
   size?: keyof typeof TextSizes;
 }
 
@@ -41,10 +44,13 @@ export const Text: React.FC<TextProps> = props => {
     GlobalStyles
   );
 
+  const cssInter = extractCssInterpolationFromProps(props);
+
   const className = css({
     color: useColor(color || "black"),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white")
+    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white"),
+    ...(cssInter as {})
   });
 
   return createComponent<TextProps>("span", { ...props, className }, style);

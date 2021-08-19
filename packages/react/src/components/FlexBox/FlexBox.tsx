@@ -1,20 +1,25 @@
 import * as React from "react";
-import { Property } from "csstype";
 import {
   BeyondStyles,
   createComponent,
   PropsOf,
   createStyles,
-  SystemProps
+  SystemProps,
+  extractCssInterpolationFromProps
 } from "@beyond/system";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 
-export interface FlexBoxProps extends SystemProps, PropsOf<"div"> {}
+export interface FlexBoxProps
+  extends SystemProps,
+    Omit<PropsOf<"div">, keyof SystemProps> {}
 
 export const FlexBox: React.FC<FlexBoxProps> = props => {
+  const cssInter = extractCssInterpolationFromProps(props);
+
   const className = css({
-    display: "flex"
+    display: "flex",
+    ...(cssInter as {})
   });
 
   // sizing props are passed here to overide the default sizings

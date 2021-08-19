@@ -10,7 +10,13 @@ export default {
 
 export const Basic = () => {
   return (
-    <Button radius='12' backgroundColorScheme='green'>
+    <Button
+      radius='12'
+      backgroundColorScheme='green'
+      bgcolor='red'
+      title='Hello World'
+      paddingLeft='200px'
+    >
       Hello
     </Button>
   );
@@ -19,7 +25,8 @@ export const Basic = () => {
 export const SizedButtons = () => {
   return (
     <div>
-      <Button size='xs    </div>
+      <Button size='xs'>Create Account</Button>{" "}
+    </div>
   );
 };
 export const ThemedButton = () => {

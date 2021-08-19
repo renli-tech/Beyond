@@ -2,7 +2,9 @@ import {
   createComponent,
   BeyondStyles,
   PropsOf,
-  createStyles
+  createStyles,
+  extractCssInterpolationFromProps,
+  SystemProps
 } from "@beyond/system";
 import { ColorName, getColor } from "@beyond/theme";
 import { useColor, useSpacing } from "@beyond/shared";
@@ -26,7 +28,9 @@ export const AvatarSizes = {
   "9xl": { width: "22rem", height: "22rem" }
 } as const;
 
-export interface AvatarProps extends PropsOf<"img"> {
+export interface AvatarProps
+  extends SystemProps,
+    Omit<PropsOf<"img">, keyof SystemProps> {
   bgcolor?: ColorName | string;
   size?: keyof typeof AvatarSizes;
 }
@@ -42,11 +46,14 @@ export const Avatar: React.FC<AvatarProps> = props => {
     GlobalStyles
   );
 
+  const cssInter = extractCssInterpolationFromProps(props);
+
   const className = css({
     cursor: "pointer",
     borderRadius: useSpacing("full"),
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white")
+    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white"),
+    ...(cssInter as {})
   });
 
   return createComponent<AvatarProps>("img", { ...props, className }, style);
