@@ -4,32 +4,22 @@ import {
   BeyondStyles,
   createComponent,
   PropsOf,
-  createStyles
+  createStyles,
+  SystemProps
 } from "@beyond/system";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 
-export interface FlexBoxProps extends PropsOf<"div"> {
-  alignItems?: Property.AlignItems;
-  direction?: Property.FlexDirection;
-  wrap?: Property.FlexWrap;
-  grow?: 0 | 1;
-  contents?: Property.JustifyContent;
-}
+export interface FlexBoxProps extends SystemProps, PropsOf<"div"> {}
 
 export const FlexBox: React.FC<FlexBoxProps> = props => {
-  const { alignItems, direction, wrap, grow, contents } = props;
-
   const className = css({
-    display: "flex",
-    alignItems,
-    flexDirection: direction,
-    flexWrap: wrap,
-    flexGrow: grow,
-    justifyContent: contents
+    display: "flex"
   });
 
   // sizing props are passed here to overide the default sizings
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
   return createComponent("div", { ...props, className }, style);
 };
+
+FlexBox.displayName = "BeyondFlexBox";

@@ -14,7 +14,7 @@ export type BeyondComponent = React.ReactElement;
 
 export type Target = keyof JSX.IntrinsicElements | React.FunctionComponent;
 
-type RemovePropsWeControl<ElementProps, OurProps> = Omit<
+export type RemovePropsWeControl<ElementProps, OurProps> = Omit<
   ElementProps,
   keyof OurProps
 >;

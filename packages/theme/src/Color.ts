@@ -291,6 +291,8 @@ export const opacity = {
   100: "1"
 } as const;
 
+export type OpacityValue = keyof typeof opacity;
+
 export interface Color {
   name: ColorName;
   value: string;

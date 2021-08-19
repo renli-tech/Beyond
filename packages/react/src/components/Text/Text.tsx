@@ -2,7 +2,8 @@ import {
   createComponent,
   BeyondStyles,
   PropsOf,
-  createStyles
+  createStyles,
+  SystemProps
 } from "@beyond/system";
 import { ColorName, getColor, getFontSize } from "@beyond/theme";
 import { useColor } from "@beyond/shared";
@@ -25,9 +26,7 @@ export const TextSizes = {
   "9xl": getFontSize("9xl")
 } as const;
 
-export interface TextProps extends PropsOf<"span"> {
-  bgcolor?: ColorName | string;
-  color?: ColorName | string;
+export interface TextProps extends SystemProps, PropsOf<"span"> {
   size?: keyof typeof TextSizes;
 }
 
@@ -51,4 +50,4 @@ export const Text: React.FC<TextProps> = props => {
   return createComponent<TextProps>("span", { ...props, className }, style);
 };
 
-Text.displayName = "Text";
+Text.displayName = "BeyondText";

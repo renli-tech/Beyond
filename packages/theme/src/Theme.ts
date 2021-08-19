@@ -1,8 +1,4 @@
-export type BaseTheme = {
-  [key: string]: unknown;
-};
-
-export type Theme = BaseTheme & {
+export type Theme = {
   colors?: {
     [key: string]: unknown;
   };
@@ -10,3 +6,5 @@ export type Theme = BaseTheme & {
     [key: string]: unknown;
   };
 };
+
+export type ThemeType = keyof Theme;
