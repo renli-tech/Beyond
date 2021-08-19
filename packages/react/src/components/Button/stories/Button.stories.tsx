@@ -2,7 +2,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import { Button } from "../Button";
-import { ThemeProvider } from "@beyond/shared";
+import { ThemeProvider } from "@beyond-ui/shared";
 export default {
   title: "Button",
   component: Button

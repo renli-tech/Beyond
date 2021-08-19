@@ -1,5 +1,5 @@
-import { BeyondStyles } from "@beyond/system";
-import { getFontFamily, getFontSize } from "@beyond/theme";
+import { BeyondStyles } from "@beyond-ui/system";
+import { getFontFamily, getFontSize } from "@beyond-ui/theme";
 
 export const GlobalStyles: BeyondStyles = {
   ...getFontSize("sm"),

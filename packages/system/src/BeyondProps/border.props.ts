@@ -1,4 +1,4 @@
-import { ColorName, RoundedValues } from "@beyond/theme";
+import { ColorName, RoundedValues } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
 export interface BorderProps {

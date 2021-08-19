@@ -1,4 +1,4 @@
-import { ScaleValue, SpacingName } from "@beyond/theme";
+import { ScaleValue, SpacingName } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
 export interface TransformProps {

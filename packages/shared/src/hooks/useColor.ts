@@ -1,5 +1,5 @@
 // import * as React from "react";
-import { ColorName, colors, getColor, Theme } from "@beyond/theme";
+import { ColorName, colors, getColor, Theme } from "@beyond-ui/theme";
 import React from "react";
 import { useTheme } from "./useTheme";
 

@@ -1,4 +1,4 @@
-import { Button } from "@beyond/react";
+import { Button } from "@beyond-ui/react";
 
 function App() {
   return (

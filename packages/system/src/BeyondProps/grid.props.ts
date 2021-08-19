@@ -1,4 +1,4 @@
-import { SpacingName } from "@beyond/theme";
+import { SpacingName } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
 export interface GridProps {

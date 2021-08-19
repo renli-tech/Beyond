@@ -1,4 +1,4 @@
-import { Theme } from "@beyond/theme";
+import { Theme } from "@beyond-ui/theme";
 import * as React from "react";
 
 export interface Shared {

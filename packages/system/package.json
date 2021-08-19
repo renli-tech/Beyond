@@ -1,6 +1,6 @@
 {
-  "name": "@beyond/system",
-  "version": "1.0.0",
+  "name": "@beyond-ui/system",
+  "version": "0.0.0",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -36,7 +36,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@beyond/theme": "^1.0.0",
+    "@beyond-ui/theme": "^0.0.0",
     "@emotion/css": "^11.1.3"
   }
 }

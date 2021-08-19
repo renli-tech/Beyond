@@ -48,7 +48,7 @@ end with `.stories.tsx`.
 
 **`yarn test`**: run all tests in individual packages.
 
-**`yarn workspace @beyond/[package] run <cmd>`**: Run a command on the specific package you're
+**`yarn workspace @beyond-ui/[package] run <cmd>`**: Run a command on the specific package you're
 working on. You can run `build`, `test` commands.
 
 #### Package Aliasing and Yarn Workspace
@@ -56,15 +56,15 @@ working on. You can run `build`, `test` commands.
 Since we're using lerna monorepo + yarn workspaces by default, this enables us
 to run commands within packages directly from the root.
 
-Each package is named this way: `@beyond/[component]`. Let's assume we want to
+Each package is named this way: `@beyond-ui/[component]`. Let's assume we want to
 run the test in the theme package. Here's how to do it:
 
 ```bash
-yarn workspace @beyond/react build
+yarn workspace @beyond-ui/react build
 
 # or
 
-lerna run build --scope @beyond/react
+lerna run build --scope @beyond-ui/react
 ```
 
 ### Documentation
