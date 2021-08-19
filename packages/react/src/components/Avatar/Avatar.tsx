@@ -5,9 +5,9 @@ import {
   createStyles,
   extractCssInterpolationFromProps,
   SystemProps
-} from "@beyond/system";
-import { ColorName, getColor } from "@beyond/theme";
-import { useColor, useSpacing } from "@beyond/shared";
+} from "@beyond-ui/system";
+import { ColorName, getColor } from "@beyond-ui/theme";
+import { useColor, useSpacing } from "@beyond-ui/shared";
 import React from "react";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";

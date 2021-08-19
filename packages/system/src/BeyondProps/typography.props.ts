@@ -1,4 +1,8 @@
-import { FontFamilyValue, FontSizeValue, FontWeightValue } from "@beyond/theme";
+import {
+  FontFamilyValue,
+  FontSizeValue,
+  FontWeightValue
+} from "@beyond-ui/theme";
 import { Property } from "csstype";
 
 export interface TypographyProps {

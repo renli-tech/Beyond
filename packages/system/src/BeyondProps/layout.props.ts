@@ -1,4 +1,4 @@
-import { HeightValue, WidthValue } from "@beyond/theme";
+import { HeightValue, WidthValue } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
 export interface LayoutProps {

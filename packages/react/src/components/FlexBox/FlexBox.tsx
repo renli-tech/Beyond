@@ -6,7 +6,7 @@ import {
   createStyles,
   SystemProps,
   extractCssInterpolationFromProps
-} from "@beyond/system";
+} from "@beyond-ui/system";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 

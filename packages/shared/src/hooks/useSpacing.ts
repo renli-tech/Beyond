@@ -1,5 +1,5 @@
 // import * as React from "react";
-import { spacings, SpacingName, Theme, getSpacing } from "@beyond/theme";
+import { spacings, SpacingName, Theme, getSpacing } from "@beyond-ui/theme";
 import React from "react";
 import { useTheme } from "./useTheme";
 

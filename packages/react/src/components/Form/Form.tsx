@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { createComponent, PropsOf, SystemProps } from "@beyond/system";
+import { createComponent, PropsOf, SystemProps } from "@beyond-ui/system";
 
 export interface FormProps
   extends SystemProps,

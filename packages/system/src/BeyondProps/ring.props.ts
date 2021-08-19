@@ -1,4 +1,4 @@
-import { ColorName } from "@beyond/theme";
+import { ColorName } from "@beyond-ui/theme";
 
 export interface RingProps {
   /**

@@ -10,13 +10,13 @@ A design system for Renli</p>
 
 ## Packages
 
-| package                                         | version |
-| ----------------------------------------------- | ------- |
-| [@beyond/shared](./packages/shared)             | 0.0.0   |
-| [@beyond/react](./packages/react)               | 0.0.0   |
-| [@beyond/react-native](./packages/react-native) | 0.0.0   |
-| [@beyond/theme](./packages/theme)               | 0.0.0   |
-| [@beyond/system](./packages/system)             | 0.0.0   |
+| package                                            | version |
+| -------------------------------------------------- | ------- |
+| [@beyond-ui/shared](./packages/shared)             | 0.0.0   |
+| [@beyond-ui/react](./packages/react)               | 0.0.0   |
+| [@beyond-ui/react-native](./packages/react-native) | 0.0.0   |
+| [@beyond-ui/theme](./packages/theme)               | 0.0.0   |
+| [@beyond-ui/system](./packages/system)             | 0.0.0   |
 
 <br/>
 
@@ -29,20 +29,20 @@ A design system for Renli</p>
 <br/>
 
 To use Beyond UI Library in React, all you need to do is install the
-`@beyond/react` package:
+`@beyond-ui/react` package:
 
 ```sh
-$ yarn add @beyond/react
+$ yarn add @beyond-ui/react
 
 # or
 
-$ npm i @beyond/react
+$ npm i @beyond-ui/react
 ```
 
 2. Now you can start importing components:
 
 ```jsx
-import { Button } from "@beyond/react";
+import { Button } from "@beyond-ui/react";
 
 function App() {
   return (
@@ -57,7 +57,7 @@ function App() {
 3. You can also define your own Theme:
 
 ```jsx
-import { ThemeProvider, Button } from "@beyond/react";
+import { ThemeProvider, Button } from "@beyond-ui/react";
 
 function App() {
   return (

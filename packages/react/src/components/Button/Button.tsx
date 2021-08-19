@@ -6,9 +6,14 @@ import {
   createStyles,
   SystemProps,
   extractCssInterpolationFromProps
-} from "@beyond/system";
-import { useColor, useSpacing } from "@beyond/shared";
-import { ColorName, SpacingName, getFontSize, getColor } from "@beyond/theme";
+} from "@beyond-ui/system";
+import { useColor, useSpacing } from "@beyond-ui/shared";
+import {
+  ColorName,
+  SpacingName,
+  getFontSize,
+  getColor
+} from "@beyond-ui/theme";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 

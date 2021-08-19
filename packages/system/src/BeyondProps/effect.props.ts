@@ -1,5 +1,5 @@
 import { Property } from "csstype";
-import { OpacityValue } from "@beyond/theme";
+import { OpacityValue } from "@beyond-ui/theme";
 
 export interface EffectProps {
   /**
