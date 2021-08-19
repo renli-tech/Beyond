@@ -1,6 +1,6 @@
 {
   "name": "@beyond-ui/shared",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -36,7 +36,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@beyond-ui/system": "^0.0.0",
-    "@beyond-ui/theme": "^0.0.0"
+    "@beyond-ui/system": "^1.0.0",
+    "@beyond-ui/theme": "^1.0.0"
   }
 }
