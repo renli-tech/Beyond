@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BeyondComponent, BeyondStyles, Props, Target } from "./types";
-import { generateId } from "./utils";
+import { generateId } from "@beyond/utils";
 
 export const createComponent = <OurProps>(
   target: Target,

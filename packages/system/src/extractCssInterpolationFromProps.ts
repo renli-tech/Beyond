@@ -1,7 +1,8 @@
 import { CSSInterpolation } from "@emotion/css";
 
-export const extractCssInterpolationFromProps = (props: {}): CSSInterpolation => {
-  const interpolation: CSSInterpolation = { ...(props as {}) };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const extractCssInterpolationFromProps = (_props: {}): CSSInterpolation => {
+  const interpolation: CSSInterpolation = {};
 
   return interpolation;
 };

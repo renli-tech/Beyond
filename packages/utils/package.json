@@ -1,5 +1,5 @@
 {
-  "name": "@beyond-ui/system",
+  "name": "@beyond-ui/utils",
   "version": "1.0.1",
   "sideEffects": false,
   "main": "dist/index.js",
@@ -34,10 +34,5 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "dependencies": {
-    "@beyond-ui/theme": "^1.0.1",
-    "@beyond-ui/utils": "^1.0.1",
-    "@emotion/css": "^11.1.3"
   }
 }

@@ -1,23 +1,24 @@
-import { Button } from "@beyond-ui/react";
+import { Button, ThemeProvider, Form, TextInput, FlexBox } from "@beyond-ui/react";
 
 function App() {
+
+  const theme = {
+    colors : {
+      myRed : "#d22"
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button color="white" radius="0" backgroundColor="blue">Hello</Button>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <FlexBox alignItems="center" justifyContent="space-around" flexDirection="row"> 
+      <Form>
+          <TextInput placeholder="Firstname" type="text" marginRight="20px"/>
+          <TextInput placeholder="Lastname" type="password"/>
+          <Button backgroundColor="blue" rounded="full">Hello</Button>
+      </Form>
+      </FlexBox>
+
+    </ThemeProvider>
   );
 }
 
