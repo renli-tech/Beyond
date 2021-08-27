@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type Theme = {
   colors?: {
-    [key: string]: unknown;
+    [key: string]: any;
   };
   spacing?: {
-    [key: string]: unknown;
+    [key: string]: any;
+  };
+  defaults?: {
+    [key: string]: any;
   };
 };
 

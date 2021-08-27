@@ -34,8 +34,5 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "dependencies": {
-    "@beyond-ui/system": "^1.0.1"
   }
 }

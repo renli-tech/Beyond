@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 /**
@@ -90,3 +91,19 @@ export const getWidth = (w: WidthValue) => {
 export const getHeight = (h: HeightValue) => {
   return height[h];
 };
+
+export function isOfTypeWidthValue<T extends WidthValue = WidthValue>(
+  k: any
+): k is T {
+  return Object.keys(width).includes(k);
+}
+export function isOfTypeHeightValue<T extends HeightValue = HeightValue>(
+  k: any
+): k is T {
+  return Object.keys(height).includes(k);
+}
+export function isOfTypeScaleValue<T extends ScaleValue = ScaleValue>(
+  k: any
+): k is T {
+  return Object.keys(scale).includes(k);
+}
