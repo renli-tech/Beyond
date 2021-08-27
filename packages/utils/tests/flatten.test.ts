@@ -15,9 +15,9 @@ test("should flatten obj", () => {
 
   const out = {
     name: "test",
-    address_personal: "abc",
-    address_office_building: "random",
-    address_office_street: "some street"
+    "address-personal": "abc",
+    "address-office-building": "random",
+    "address-office-street": "some street"
   };
 
   expect(flatten(obj)).toStrictEqual(out);

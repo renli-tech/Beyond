@@ -325,3 +325,8 @@ export const getColor: ColorFunction = (name, shade) => {
 
   return value;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function isOfTypeColor<T extends ColorName = ColorName>(k: any): k is T {
+  return Object.keys(colors).includes(k);
+}

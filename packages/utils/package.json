@@ -1,5 +1,5 @@
 {
-  "name": "@beyond-ui/theme",
+  "name": "@beyond-ui/utils",
   "version": "1.0.1",
   "sideEffects": false,
   "main": "dist/index.js",

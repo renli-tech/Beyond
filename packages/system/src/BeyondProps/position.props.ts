@@ -1,64 +1,70 @@
 import { Property } from "csstype";
+import { SystemProps } from ".";
+import { Token } from "./types";
+
+export const positionPropsResolvers = {
+  inset: (prop: Property.Left): SystemProps => {
+    return {
+      left: prop,
+      right: prop,
+      top: prop,
+      bottom: prop
+    };
+  },
+  insetX: (prop: Property.Left): SystemProps => {
+    return {
+      left: prop,
+      right: prop
+    };
+  },
+  insetY: (prop: Property.Top): SystemProps => {
+    return {
+      top: prop,
+      bottom: prop
+    };
+  },
+  pos: "position"
+};
 
 export interface PositionProps {
   /**
    * The CSS `z-index` property
    */
-  zIndex?: Property.ZIndex;
+  zIndex?: Token<Property.ZIndex>;
   /**
    * The CSS `top` property
    */
-  top?: Property.Top;
-  insetBlockStart?: Property.InsetBlockStart;
+  top?: Token<Property.Top>;
   /**
    * The CSS `right` property
    */
-  right?: Property.Right;
-  /**
-   * When the direction is `ltr`, `insetInlineEnd` is equivalent to `right`.
-   * When the direction is `rtl`, `insetInlineEnd` is equivalent to `left`.
-   */
-  insetInlineEnd?: Property.InsetInlineEnd;
-  /**
-   * When the direction is `ltr`, `insetEnd` is equivalent to `right`.
-   * When the direction is `rtl`, `insetEnd` is equivalent to `left`.
-   */
-  insetEnd?: Property.InsetInlineEnd;
+  right?: Token<Property.Right>;
   /**
    * The CSS `bottom` property
    */
-  bottom?: Property.Bottom;
-  insetBlockEnd?: Property.InsetBlockEnd;
+  bottom?: Token<Property.Bottom>;
   /**
    * The CSS `left` property
    */
-  left?: Property.Left;
-  insetInlineStart?: Property.InsetInlineStart;
-  /**
-   * When the direction is `start`, `end` is equivalent to `left`.
-   * When the direction is `start`, `end` is equivalent to `right`.
-   */
-  insetStart?: Property.InsetInlineStart;
+  left?: Token<Property.Left>;
   /**
    * The CSS `left`, `right`, `top`, `bottom` property
    */
-  inset?: Property.Left;
+  inset?: Token<Property.Left>;
   /**
    * The CSS `left`, and `right` property
    */
-  insetX?: Property.Left;
+  insetX?: Token<Property.Left>;
   /**
    * The CSS `top`, and `bottom` property
    */
-  insetY?: Property.Left;
+  insetY?: Token<Property.Left>;
   /**
    * The CSS `position` property
    */
-  pos?: Property.Position;
+  pos?: Token<Property.Position>;
   /**
    * The CSS `position` property
    */
-  position?: Property.Position;
-  insetInline?: Property.InsetInline;
-  insetBlock?: Property.InsetBlock;
+  position?: Token<Property.Position>;
 }

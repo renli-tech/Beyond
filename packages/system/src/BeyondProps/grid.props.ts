@@ -1,5 +1,6 @@
 import { SpacingName } from "@beyond-ui/theme";
 import { Property } from "csstype";
+import { Token } from "./types";
 
 export interface GridProps {
   /**
@@ -9,7 +10,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-gap)
    */
-  gap?: SpacingName | (string | number);
+  gap?: Token<SpacingName | (string | number)>;
   /**
    * The CSS `grid-column-gap` property.
    *
@@ -17,7 +18,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap)
    */
-  gridColumnGap?: SpacingName | (string | number);
+  gridColumnGap?: Token<SpacingName | (string | number)>;
   /**
    * The CSS `grid-row-gap` property.
    *
@@ -25,7 +26,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)
    */
-  gridRowGap?: SpacingName | (string | number);
+  gridRowGap?: Token<SpacingName | (string | number)>;
   /**
    * The CSS `grid-column` property.
    *
@@ -34,7 +35,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start)
    */
-  gridColumnStart?: Property.GridColumnStart;
+  gridColumnStart?: Token<Property.GridColumnStart>;
   /**
    * The CSS `grid-row-start` property
    *
@@ -44,7 +45,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)
    */
-  gridRowStart?: Property.GridRowStart;
+  gridRowStart?: Token<Property.GridRowStart>;
   /**
    * The CSS `grid-row-end` property
    *
@@ -54,7 +55,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end)
    */
-  gridRowEnd?: Property.GridRowEnd;
+  gridRowEnd?: Token<Property.GridRowEnd>;
   /**
    * The CSS `grid-template` property.
    *
@@ -62,7 +63,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template)
    */
-  gridTemplate?: Property.GridTemplate;
+  gridTemplate?: Token<Property.GridTemplate>;
   /**
    * The CSS `grid-column` property
    *
@@ -72,7 +73,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end)
    */
-  gridColumnEnd?: Property.GridColumnEnd;
+  gridColumnEnd?: Token<Property.GridColumnEnd>;
   /**
    * The CSS `grid-column` property.
    *
@@ -82,7 +83,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
    */
-  gridColumn?: Property.GridColumn;
+  gridColumn?: Token<Property.GridColumn>;
   /**
    * The CSS `grid-row` property
    *
@@ -92,7 +93,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
    */
-  gridRow?: Property.GridRow;
+  gridRow?: Token<Property.GridRow>;
   /**
    * The CSS `grid-auto-flow` property
    *
@@ -101,7 +102,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)
    */
-  gridAutoFlow?: Property.GridAutoFlow;
+  gridAutoFlow?: Token<Property.GridAutoFlow>;
   /**
    * The CSS `grid-auto-columns` property.
    *
@@ -109,7 +110,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
    */
-  gridAutoColumns?: Property.GridAutoColumns;
+  gridAutoColumns?: Token<Property.GridAutoColumns>;
   /**
    * The CSS `grid-auto-rows` property.
    *
@@ -117,7 +118,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)
    */
-  gridAutoRows?: Property.GridAutoRows;
+  gridAutoRows?: Token<Property.GridAutoRows>;
   /**
    * The CSS `grid-template-columns` property
    *
@@ -125,7 +126,7 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
    */
-  gridTemplateColumns?: Property.GridTemplateColumns;
+  gridTemplateColumns?: Token<Property.GridTemplateColumns>;
   /**
    * The CSS `grid-template-rows` property.
    *
@@ -133,13 +134,13 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows)
    */
-  gridTemplateRows?: Property.GridTemplateRows;
+  gridTemplateRows?: Token<Property.GridTemplateRows>;
   /**
    * The CSS `grid-template-areas` property.
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas)
    */
-  gridTemplateAreas?: Property.GridTemplateAreas;
+  gridTemplateAreas?: Token<Property.GridTemplateAreas>;
   /**
    * The CSS `grid-areas` property.
    *
@@ -149,5 +150,5 @@ export interface GridProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
    */
-  gridArea?: Property.GridArea;
+  gridArea?: Token<Property.GridArea>;
 }

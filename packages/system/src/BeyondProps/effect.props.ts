@@ -1,33 +1,39 @@
 import { Property } from "csstype";
 import { OpacityValue } from "@beyond-ui/theme";
+import { Token } from "./types";
+
+export const effectPropsResolver = {
+  shadow: "boxShadow",
+  bgBlendMode: "backgroundBlendMode"
+};
 
 export interface EffectProps {
   /**
    * The `box-shadow` property
    */
-  boxShadow?: Property.BoxShadow | number;
+  boxShadow?: Token<Property.BoxShadow | number>;
   /**
    * The `box-shadow` property
    */
-  shadow?: Property.BoxShadow | number;
+  shadow?: Token<Property.BoxShadow | number>;
   /**
    * The `mix-blend-mode` property
    */
-  mixBlendMode?: Property.MixBlendMode;
+  mixBlendMode?: Token<Property.MixBlendMode>;
   /**
    * The `blend-mode` property
    */
-  blendMode?: Property.MixBlendMode;
+  blendMode?: Token<Property.MixBlendMode>;
   /**
    * The CSS `background-blend-mode` property
    */
-  backgroundBlendMode?: Property.BackgroundBlendMode;
+  backgroundBlendMode?: Token<Property.BackgroundBlendMode>;
   /**
    * The CSS `background-blend-mode` property
    */
-  bgBlendMode?: Property.BackgroundBlendMode;
+  bgBlendMode?: Token<Property.BackgroundBlendMode>;
   /**
    * The CSS `opacity` property
    */
-  opacity?: OpacityValue | number;
+  opacity?: Token<OpacityValue | number>;
 }

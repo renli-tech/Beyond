@@ -1,159 +1,159 @@
 import { ColorName, RoundedValues } from "@beyond-ui/theme";
 import { Property } from "csstype";
+import { Token } from "./types";
 
 export interface BorderProps {
   /**
    * The CSS `border` property
    */
-  border?: Property.Border;
+  border?: Token<Property.Border>;
   /**
    * The CSS `border-width` property
    */
-  borderWidth?: Property.BorderWidth;
+  borderWidth?: Token<Property.BorderWidth>;
   /**
    * The CSS `border-style` property
    */
-  borderStyle?: Property.BorderStyle;
+  borderStyle?: Token<Property.BorderStyle>;
   /**
    * The CSS `border-color` property
    */
-  borderColor?: ColorName | string;
+  borderColor?: Token<Token<ColorName | string>>;
   /**
    * The CSS `border-radius` property
    */
-  borderRadius?: Property.BorderRadius;
+  borderRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-radius` property
    */
-  rounded?: RoundedValues;
+  rounded?: Token<RoundedValues>;
   /**
    * The CSS `border-top` property
    */
-  borderTop?: Property.BorderTop;
+  borderTop?: Token<Property.BorderTop>;
   /**
    * The CSS `border-top-width` property
    */
-  borderTopWidth?: Property.BorderTopWidth;
+  borderTopWidth?: Token<Property.BorderTopWidth>;
   /**
    * The CSS `border-bottom-width` property
    */
-  borderBottomWidth?: Property.BorderBottomWidth;
+  borderBottomWidth?: Token<Property.BorderBottomWidth>;
   /**
    * The CSS `border-left-width` property
    */
-  borderLeftWidth?: Property.BorderLeftWidth;
+  borderLeftWidth?: Token<Property.BorderLeftWidth>;
   /**
    * The CSS `border-right-width` property
    */
-  borderRightWidth?: Property.BorderRightWidth;
+  borderRightWidth?: Token<Property.BorderRightWidth>;
   /**
    * The CSS `border-top-style` property
    */
-  borderTopStyle?: Property.BorderTopStyle;
+  borderTopStyle?: Token<Property.BorderTopStyle>;
   /**
    * The CSS `border-bottom-style` property
    */
-  borderBottomStyle?: Property.BorderBottomStyle;
+  borderBottomStyle?: Token<Property.BorderBottomStyle>;
   /**
    * The CSS `border-left-style` property
    */
-  borderLeftStyle?: Property.BorderLeftStyle;
+  borderLeftStyle?: Token<Property.BorderLeftStyle>;
   /**
    * The CSS `border-right-styles` property
    */
-  borderRightStyle?: Property.BorderRightStyle;
+  borderRightStyle?: Token<Property.BorderRightStyle>;
   /**
    * The CSS `border-top-color` property
    */
-  borderTopColor?: Property.BorderTopColor;
+  borderTopColor?: Token<Property.BorderTopColor>;
   /**
    * The CSS `border-bottom-color` property
    */
-  borderBottomColor?: Property.BorderBottomColor;
+  borderBottomColor?: Token<Property.BorderBottomColor>;
   /**
    * The CSS `border-left-color` property
    */
-  borderLeftColor?: Property.BorderLeftColor;
+  borderLeftColor?: Token<Property.BorderLeftColor>;
   /**
    * The CSS `border-right-color` property
    */
-  borderRightColor?: Property.BorderRightColor;
+  borderRightColor?: Token<Property.BorderRightColor>;
   /**
    * The CSS `border-right` property
    */
-  borderRight?: Property.BorderRight;
+  borderRight?: Token<Property.BorderRight>;
   /**
    * The CSS `border-bottom` property
    */
-  borderBottom?: Property.BorderBottom;
+  borderBottom?: Token<Property.BorderBottom>;
 
   /**
    * The CSS `border-left` property
    */
-  borderLeft?: Property.BorderLeft;
+  borderLeft?: Token<Property.BorderLeft>;
   /**
    * The CSS `border-top-radius` property
    */
-  borderTopRadius?: Property.BorderRadius;
+  borderTopRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-top-left-radius` property and `border-top-right-radius`
    */
-  roundedTop?: RoundedValues;
+  roundedTop?: Token<RoundedValues>;
   /**
    * The CSS `border-right-radius` property
    */
-  borderRightRadius?: Property.BorderRadius;
+  borderRightRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-top-right-radius` property and `border-bottom-right-radius`
    */
-  roundedRight?: RoundedValues;
+  roundedRight?: Token<RoundedValues>;
   /**
    * The CSS `border-bottom-radius` property
    */
-  borderBottomRadius?: Property.BorderRadius;
+  borderBottomRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-left-radius` property
    */
-  borderLeftRadius?: Property.BorderRadius;
+  borderLeftRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-top-left-radius` property
    */
-  borderTopLeftRadius?: Property.BorderRadius;
+  borderTopLeftRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-top-left-radius` property
    */
-  roundedTopLeft?: RoundedValues;
+  roundedTopLeft?: Token<RoundedValues>;
   /**
    * The CSS `border-top-right-radius` property
    */
-  borderTopRightRadius?: Property.BorderRadius;
-  borderTopEndRadius?: Property.BorderRadius;
-  borderStartEndRadius?: Property.BorderStartEndRadius;
+  borderTopRightRadius?: Token<Property.BorderRadius>;
+  borderTopEndRadius?: Token<Property.BorderRadius>;
+  borderStartEndRadius?: Token<Property.BorderStartEndRadius>;
   /**
    * The CSS `border-top-right-radius` property
    */
-  roundedTopRight?: RoundedValues;
+  roundedTopRight?: Token<RoundedValues>;
   /**
    * The CSS `border-bottom-left-radius` property
    */
-  borderBottomLeftRadius?: Property.BorderRadius;
+  borderBottomLeftRadius?: Token<Property.BorderRadius>;
   /**
    * The CSS `border-bottom-right-radius` property
    */
-  borderBottomRightRadius?: Property.BorderRadius;
-  borderBottomEndRadius?: Property.BorderRadius;
-  borderEndEndRadius?: Property.BorderEndEndRadius;
+  borderBottomRightRadius?: Token<Property.BorderRadius>;
+  borderBottomEndRadius?: Token<Property.BorderRadius>;
+  borderEndEndRadius?: Token<Property.BorderEndEndRadius>;
   /**
    * The CSS `border-bottom-right-radius` property
    */
-  roundedBottomRight?: RoundedValues;
+  roundedBottomRight?: Token<RoundedValues>;
   /**
    * The CSS `border-right` and `border-left` property
    */
-  borderHorizontal?: Property.Border;
+  borderHorizontal?: Token<Property.Border>;
   /**
    * The CSS `border-top` and `border-bottom` property
    */
-  borderVertical?: Property.Border;
-  borderBlock?: Property.BorderBlock;
+  borderVertical?: Token<Property.Border>;
 }

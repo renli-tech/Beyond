@@ -1,16 +1,21 @@
-import { BackgroundProps } from "./background.props";
+import { merge } from "@beyond-ui/utils";
+import { BackgroundProps, backgroundPropsResolvers } from "./background.props";
 import { BorderProps } from "./border.props";
 import { ColorProps } from "./color.props";
 import { EffectProps } from "./effect.props";
-import { FlexboxProps } from "./flex.props";
+import { FlexboxProps, flexboxPropsResolvers } from "./flex.props";
 import { GridProps } from "./grid.props";
 import { InteractionProps } from "./interaction.props";
-import { LayoutProps } from "./layout.props";
-import { PositionProps } from "./position.props";
+import { LayoutProps, layoutPropsResolver } from "./layout.props";
+import {
+  MediaQueriesProps,
+  mediaQueriesPropsResolver
+} from "./mediaQueries.props";
+import { PositionProps, positionPropsResolvers } from "./position.props";
 import { PseudoProps } from "./pseudo.props";
-import { RingProps } from "./ring.props";
-import { SpacingProps } from "./spacing.props";
-import { TransformProps } from "./transform.props";
+import { RingProps, ringPropsResolvers } from "./ring.props";
+import { SpacingProps, spacingPropsResolvers } from "./spacing.props";
+import { TransformProps, transformPropsResolvers } from "./transform.props";
 import { TypographyProps } from "./typography.props";
 
 export * from "./color.props";
@@ -28,17 +33,33 @@ export * from "./position.props";
 export * from "./transform.props";
 export * from "./pseudo.props";
 
-export type SystemProps = ColorProps &
-  BackgroundProps &
-  BorderProps &
-  RingProps &
-  SpacingProps &
-  EffectProps &
-  FlexboxProps &
-  GridProps &
-  InteractionProps &
-  TypographyProps &
-  LayoutProps &
-  PositionProps &
-  TransformProps &
-  PseudoProps;
+export interface SystemProps
+  extends ColorProps,
+    BackgroundProps,
+    BorderProps,
+    RingProps,
+    SpacingProps,
+    EffectProps,
+    FlexboxProps,
+    GridProps,
+    InteractionProps,
+    TypographyProps,
+    LayoutProps,
+    PositionProps,
+    TransformProps,
+    PseudoProps,
+    MediaQueriesProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
+export const systemPropsResolvers = merge(
+  backgroundPropsResolvers,
+  ringPropsResolvers,
+  mediaQueriesPropsResolver,
+  flexboxPropsResolvers,
+  layoutPropsResolver,
+  positionPropsResolvers,
+  transformPropsResolvers,
+  spacingPropsResolvers
+);

@@ -48,3 +48,10 @@ type SpacingFunction = (name: SpacingName) => string;
 export const getSpacing: SpacingFunction = name => {
   return spacings[name];
 };
+
+export function isOfTypeSpacing<T extends SpacingName = SpacingName>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  k: any
+): k is T {
+  return Object.keys(spacings).includes(k);
+}
