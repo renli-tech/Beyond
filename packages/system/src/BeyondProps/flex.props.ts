@@ -1,4 +1,33 @@
 import { Property } from "csstype";
+import { SystemProps } from ".";
+import { SpacingName, isOfTypeSpacing, getSpacing } from "../../../theme/dist";
+import { Token } from "./types";
+
+export const flexboxPropsResolvers = {
+  flexDir: "flexDirection",
+  spaceX: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalVal = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      "*": {
+        marginRight: finalVal,
+        marginLeft: finalVal
+      }
+    };
+  },
+  spaceY: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalVal = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      "*": {
+        marginTop: finalVal,
+        marginBottom: finalVal
+      }
+    };
+  }
+};
 
 export interface FlexboxProps {
   /**
@@ -11,7 +40,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-items)
    */
-  alignItems?: Property.AlignItems;
+  alignItems?: Token<Property.AlignItems>;
   /**
    * The CSS `align-content` property.
    *
@@ -20,7 +49,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-content)
    */
-  alignContent?: Property.AlignContent;
+  alignContent?: Token<Property.AlignContent>;
   /**
    * The CSS `justify-items` property.
    *
@@ -30,7 +59,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/justify-items)
    */
-  justifyItems?: Property.JustifyItems;
+  justifyItems?: Token<Property.JustifyItems>;
   /**
    * The CSS `justify-content` property.
    *
@@ -39,7 +68,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/justify-content)
    */
-  justifyContent?: Property.JustifyContent;
+  justifyContent?: Token<Property.JustifyContent>;
   /**
    * The CSS `flex-wrap` property.
    *
@@ -49,7 +78,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-wrap)
    */
-  flexWrap?: Property.FlexWrap;
+  flexWrap?: Token<Property.FlexWrap>;
   /**
    * The CSS `flex-flow` property.
    *
@@ -58,7 +87,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-flow)
    */
-  flexFlow?: Property.FlexFlow;
+  flexFlow?: Token<Property.FlexFlow>;
   /**
    * The CSS `flex-basis` property.
    *
@@ -66,7 +95,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-basis)
    */
-  flexBasis?: Property.FlexBasis;
+  flexBasis?: Token<Property.FlexBasis>;
   /**
    * The CSS `flex-direction` property.
    *
@@ -75,7 +104,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-direction)
    */
-  flexDirection?: Property.FlexDirection;
+  flexDirection?: Token<Property.FlexDirection>;
   /**
    * The CSS `flex-direction` property.
    *
@@ -84,7 +113,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-direction)
    */
-  flexDir?: Property.FlexDirection;
+  flexDir?: Token<Property.FlexDirection>;
   /**
    * The CSS `flex` property.
    *
@@ -93,7 +122,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex)
    */
-  flex?: Property.Flex;
+  flex?: Token<Property.Flex>;
   /**
    * The CSS `justify-self` property.
    *
@@ -102,7 +131,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-flow)
    */
-  justifySelf?: Property.JustifySelf;
+  justifySelf?: Token<Property.JustifySelf>;
   /**
    * The CSS `align-self` property.
    *
@@ -111,7 +140,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/align-self)
    */
-  alignSelf?: Property.AlignSelf;
+  alignSelf?: Token<Property.AlignSelf>;
   /**
    * The CSS `order` property.
    *
@@ -119,7 +148,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/order)
    */
-  order?: Property.Order;
+  order?: Token<Property.Order>;
   /**
    * The CSS `flex-grow` property.
    *
@@ -128,7 +157,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-grow)
    */
-  flexGrow?: Property.FlexGrow | (string & number);
+  flexGrow?: Token<Property.FlexGrow | (string & number)>;
   /**
    * The CSS `flex-shrink` property.
    *
@@ -137,7 +166,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/flex-shrink)
    */
-  flexShrink?: Property.FlexShrink | (string & number);
+  flexShrink?: Token<Property.FlexShrink | (string & number)>;
   /**
    * The CSS `place-items` property.
    *
@@ -147,7 +176,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-items)
    */
-  placeItems?: Property.PlaceItems;
+  placeItems?: Token<Property.PlaceItems>;
   /**
    * The CSS `place-content` property.
    *
@@ -157,7 +186,7 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-content)
    */
-  placeContent?: Property.PlaceContent;
+  placeContent?: Token<Property.PlaceContent>;
   /**
    * The CSS `place-self` property.
    *
@@ -167,13 +196,13 @@ export interface FlexboxProps {
    *
    * @see [Mozilla Docs](https://developer.mozilla.org/docs/Web/CSS/place-self)
    */
-  placeSelf?: Property.PlaceSelf;
+  placeSelf?: Token<Property.PlaceSelf>;
   /**
    * Controls the horizontal space between elements
    */
-  experimental_spaceX?: Property.Margin;
+  spaceX?: Token<SpacingName | Property.Margin>;
   /**
    * Controls the vertical space between elements
    */
-  experimental_spaceY?: Property.Margin;
+  spaceY?: Token<SpacingName | Property.Margin>;
 }

@@ -1,37 +1,38 @@
 import { ColorName } from "@beyond-ui/theme";
 import { Property } from "csstype";
+import { Token } from "./types";
 
 export interface InteractionProps {
   /**
    * The CSS `appearance` property
    */
-  appearance?: Property.Appearance;
+  appearance?: Token<Property.Appearance>;
   /**
    * The CSS `user-select` property
    */
-  userSelect?: Property.UserSelect;
+  userSelect?: Token<Property.UserSelect>;
   /**
    * The CSS `pointer-events` property
    */
-  pointerEvents?: Property.PointerEvents;
+  pointerEvents?: Token<Property.PointerEvents>;
   /**
    * The CSS `resize` property
    */
-  resize?: Property.Resize;
+  resize?: Token<Property.Resize>;
   /**
    * The CSS `cursor` property
    */
-  cursor?: Property.Cursor;
+  cursor?: Token<Property.Cursor>;
   /**
    * The CSS `outline` property
    */
-  outline?: Property.Outline;
+  outline?: Token<Property.Outline>;
   /**
    * The CSS `outline-offset` property
    */
-  outlineOffset?: Property.OutlineOffset;
+  outlineOffset?: Token<Property.OutlineOffset>;
   /**
    * The CSS `outline-color` property
    */
-  outlineColor?: ColorName | string;
+  outlineColor?: Token<ColorName | string>;
 }

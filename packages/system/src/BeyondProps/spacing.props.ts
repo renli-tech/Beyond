@@ -1,116 +1,215 @@
 import { Property } from "csstype";
+import { SystemProps } from "./index";
+import { SpacingName, isOfTypeSpacing, getSpacing } from "@beyond-ui/theme";
+import { Token } from "./types";
+
+function resolveSpace<T>(f: string) {
+  return (prop: SpacingName | T): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      [f]: finalValue
+    };
+  };
+}
+
+export const spacingPropsResolvers = {
+  m: resolveSpace<Property.Margin>("margin"),
+  mt: resolveSpace<Property.MarginTop>("marginTop"),
+  ml: resolveSpace<Property.MarginLeft>("marginLeft"),
+  mb: resolveSpace<Property.MarginBottom>("marginBottom"),
+  mr: resolveSpace<Property.MarginRight>("marginRight"),
+  p: resolveSpace<Property.Padding>("padding"),
+  pt: resolveSpace<Property.PaddingTop>("paddingTop"),
+  pl: resolveSpace<Property.PaddingLeft>("paddingLeft"),
+  pb: resolveSpace<Property.PaddingBottom>("paddingBottom"),
+  pr: resolveSpace<Property.PaddingRight>("paddingRight"),
+  mx: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      marginRight: finalValue,
+      marginLeft: finalValue
+    };
+  },
+  marginHorizontal: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      marginRight: finalValue,
+      marginLeft: finalValue
+    };
+  },
+  my: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      marginTop: finalValue,
+      marginBottom: finalValue
+    };
+  },
+  marginVertical: (prop: SpacingName | Property.Margin): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      marginRight: finalValue,
+      marginLeft: finalValue
+    };
+  },
+  px: (prop: SpacingName | Property.Padding): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      paddingRight: finalValue,
+      paddingLeft: finalValue
+    };
+  },
+  py: (prop: SpacingName | Property.Padding): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      paddingRight: finalValue,
+      paddingLeft: finalValue
+    };
+  },
+  paddingHorizontal: (prop: SpacingName | Property.Padding): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      paddingRight: finalValue,
+      paddingLeft: finalValue
+    };
+  },
+  paddingVertical: (prop: SpacingName | Property.Padding): SystemProps => {
+    const finalValue = isOfTypeSpacing(prop)
+      ? getSpacing(prop as SpacingName)
+      : prop;
+    return {
+      paddingTop: finalValue,
+      paddingBottom: finalValue
+    };
+  }
+};
 
 export interface SpacingProps {
   /**
    * Margin on top, left, bottom and right
    */
-  m?: Property.Margin;
+  m?: Token<SpacingName | Property.Margin>;
   /**
    * Margin on top, left, bottom and right
    */
-  margin?: Property.Margin;
+  margin?: Token<SpacingName | Property.Margin>;
   /**
    * Margin on top
    */
-  mt?: Property.MarginTop;
+  mt?: Token<SpacingName | Property.MarginTop>;
   /**
    * Margin on top
    */
-  marginTop?: Property.MarginTop;
+  marginTop?: Token<SpacingName | Property.MarginTop>;
   /**
    * Margin on right
    */
-  mr?: Property.MarginRight;
+  mr?: Token<SpacingName | Property.MarginRight>;
   /**
    * Margin on right
    */
-  marginRight?: Property.MarginRight;
+  marginRight?: Token<SpacingName | Property.MarginRight>;
   /**
    * Margin on bottom
    */
-  mb?: Property.MarginBottom;
+  mb?: Token<SpacingName | Property.MarginBottom>;
   /**
    * Margin on bottom
    */
-  marginBottom?: Property.MarginBottom;
+  marginBottom?: Token<SpacingName | Property.MarginBottom>;
   /**
    * Margin on left
    */
-  ml?: Property.MarginLeft;
+  ml?: Token<SpacingName | Property.MarginLeft>;
   /**
    * Margin on left
    */
-  marginLeft?: Property.MarginLeft;
+  marginLeft?: Token<SpacingName | Property.MarginLeft>;
   /**
    * Margin on left and right
    */
-  mx?: Property.Margin;
+  mx?: Token<SpacingName | Property.Margin>;
   /**
    * Margin on left and right
    */
-  marginHorizontal?: Property.Margin;
+  marginHorizontal?: Token<SpacingName | Property.Margin>;
   /**
    * Margin on top and bottom
    */
-  my?: Property.Margin;
+  my?: Token<SpacingName | Property.Margin>;
   /**
    * Margin on top and bottom
    */
-  marginVertical?: Property.Margin;
+  marginVertical?: Token<SpacingName | Property.Margin>;
   /**
    * Padding on top, left, bottom and right
    */
-  p?: Property.Padding;
+  p?: Token<SpacingName | Property.Padding>;
   /**
    * Padding on top, left, bottom and right
    */
-  padding?: Property.Padding;
+  padding?: Token<SpacingName | Property.Padding>;
   /**
    * Padding on top
    */
-  pt?: Property.PaddingTop;
+  pt?: Token<SpacingName | Property.PaddingTop>;
   /**
    * Padding on top
    */
-  paddingTop?: Property.PaddingTop;
+  paddingTop?: Token<SpacingName | Property.PaddingTop>;
   /**
    * Padding on right
    */
-  pr?: Property.PaddingRight;
+  pr?: Token<SpacingName | Property.PaddingRight>;
   /**
    * Padding on right
    */
-  paddingRight?: Property.PaddingRight;
+  paddingRight?: Token<SpacingName | Property.PaddingRight>;
   /**
    * Padding on bottom
    */
-  pb?: Property.PaddingBottom;
+  pb?: Token<SpacingName | Property.PaddingBottom>;
   /**
    * Padding on bottom
    */
-  paddingBottom?: Property.PaddingBottom;
+  paddingBottom?: Token<SpacingName | Property.PaddingBottom>;
   /**
    * Padding on left
    */
-  pl?: Property.PaddingLeft;
+  pl?: Token<SpacingName | Property.PaddingLeft>;
   /**
    * Padding on left
    */
-  paddingLeft?: Property.PaddingLeft;
+  paddingLeft?: Token<SpacingName | Property.PaddingLeft>;
   /**
    * Padding on left and right
    */
-  px?: Property.Padding;
+  px?: Token<SpacingName | Property.Padding>;
   /**
    * Padding on left and right
    */
-  paddingHorizontal?: Property.Padding;
+  paddingHorizontal?: Token<SpacingName | Property.Padding>;
   /**
    * Padding on top and bottom
    */
-  py?: Property.Padding;
+  py?: Token<SpacingName | Property.Padding>;
   /**
    * Padding on top and bottom
    */
-  paddingVertical?: Property.Padding;
+  paddingVertical?: Token<SpacingName | Property.Padding>;
 }
