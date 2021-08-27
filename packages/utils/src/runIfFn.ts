@@ -1,3 +1,8 @@
-export const runIfFn = () => {
-  console.log("is a function");
-};
+import { isFunction } from "./assertions";
+
+export function runIfFn<T, U>(
+  valueOrFn: T | ((...fnArgs: U[]) => T),
+  ...args: U[]
+): T {
+  return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn;
+}
