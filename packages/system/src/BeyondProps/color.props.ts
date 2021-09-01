@@ -1,18 +1,24 @@
-import { ColorName, getColor, isOfTypeColor } from "@beyond-ui/theme";
+import { ColorName, extractColor, colors, Theme } from "@beyond-ui/theme";
 import { Property } from "csstype";
 import { SystemProps } from ".";
+import { merge } from "@beyond-ui/utils";
 import { Token } from "./types";
 
-const colorResolver = () => (prop: ColorName | Property.Color): SystemProps => {
-  const finalValue = isOfTypeColor(prop) ? getColor(prop as ColorName) : prop;
+const colorResolver = () => (
+  prop: ColorName | Property.Color,
+  _props: SystemProps,
+  theme?: Theme
+): SystemProps => {
+  const finalValue = extractColor(prop, merge(colors, theme?.colors || {}));
   return {
-    backgroundColor: finalValue
+    color: finalValue
   };
 };
 
 export const colorPropsResolver = {
   textColor: colorResolver(),
-  fill: colorResolver()
+  fill: colorResolver(),
+  color: colorResolver()
 };
 export interface ColorProps {
   /**
@@ -26,5 +32,5 @@ export interface ColorProps {
   /**
    * The CSS `stroke` property for icon svgs and paths
    */
-  stroke?: Token<ColorName | Property.Color>;
+  stroke?: Token<ColorName | Property.Stroke>;
 }

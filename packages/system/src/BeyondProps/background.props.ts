@@ -1,12 +1,15 @@
-import { ColorName, getColor, isOfTypeColor } from "@beyond-ui/theme";
+import { ColorName, Theme, extractColor, colors } from "@beyond-ui/theme";
 import { Property } from "csstype";
 import { SystemProps } from ".";
+import { merge } from "@beyond-ui/utils";
 import { Token } from "./types";
 
 const backgroundColorResolver = () => (
-  prop: ColorName | Property.Color
+  prop: ColorName | Property.Color,
+  _props: SystemProps,
+  theme?: Theme
 ): SystemProps => {
-  const finalValue = isOfTypeColor(prop) ? getColor(prop as ColorName) : prop;
+  const finalValue = extractColor(prop, merge(colors, theme?.colors || {}));
   return {
     backgroundColor: finalValue
   };
@@ -19,6 +22,8 @@ const backgroundColorResolver = () => (
 
 export const backgroundPropsResolvers = {
   bg: backgroundColorResolver(),
+  background: backgroundColorResolver(),
+  backgroundColor: backgroundColorResolver(),
   bgcolor: backgroundColorResolver(),
   bgPosition: "backgroundPosition",
   bgPos: "backgroundPosition",
