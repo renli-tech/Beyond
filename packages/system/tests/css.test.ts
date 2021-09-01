@@ -2,11 +2,13 @@ import { css } from "../src";
 
 it("returns resolved styles", () => {
   const styles = css({
-    bgcolor: "red"
+    backgroundColor: "red-500",
+    color: "red-500"
   })({});
 
   expect(styles).toStrictEqual({
-    backgroundColor: "#ef4444"
+    backgroundColor: "rgba(239,68,68,1)",
+    color: "rgba(239,68,68,1)"
   });
 });
 
@@ -20,7 +22,7 @@ it("returns resolved styles with themed values", () => {
   });
 
   expect(styles).toStrictEqual({
-    backgroundColor: "#22c55e"
+    backgroundColor: "green"
   });
 });
 
@@ -38,10 +40,10 @@ it("returns resolved styles with pseudos", () => {
   });
 
   expect(styles).toStrictEqual({
-    backgroundColor: "#22c55e",
+    backgroundColor: "green",
     ":hover": {
       alignItems: "center",
-      backgroundColor: "#22c55e"
+      backgroundColor: "green"
     }
   });
 });
@@ -50,7 +52,7 @@ it("resolves ring feature", () => {
   const styles = css({
     bgcolor: "hello",
     ring: "20",
-    ringColor: "red",
+    ringColor: "red-500",
     sm: {
       bg: "red"
     }
@@ -58,10 +60,10 @@ it("resolves ring feature", () => {
 
   expect(styles).toStrictEqual({
     backgroundColor: "hello",
-    boxShadow: " 0px 0px 0px 20px red",
-    ringColor: "red",
+    boxShadow: " 0px 0px 0px 20px rgba(239,68,68,1)",
+    ringColor: "red-500",
     "@media (min-width: 640px)": {
-      backgroundColor: "#ef4444"
+      backgroundColor: "red"
     }
   });
 });

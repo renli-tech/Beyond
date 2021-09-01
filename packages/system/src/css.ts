@@ -45,7 +45,7 @@ export const getCss: GetCSSFn = obj => {
       }
 
       if (isFunction(newKey)) {
-        propValue = runIfFn(newKey, propValue, props);
+        propValue = runIfFn(newKey, propValue, props, theme);
         computedStyles = { ...computedStyles, ...(propValue as {}) };
         continue;
       }
