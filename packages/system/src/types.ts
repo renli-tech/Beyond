@@ -14,7 +14,7 @@ export type BeyondComponent = React.ReactElement;
 
 export type Target = keyof JSX.IntrinsicElements | React.FunctionComponent;
 
-type PropsWeControl = "as" | "color";
+type PropsWeControl = "as" | "color" | "width" | "height";
 
 export type RemovePropsWeControl<ElementProps, OurProps> = Omit<
   ElementProps,

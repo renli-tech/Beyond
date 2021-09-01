@@ -1,30 +1,34 @@
 import * as React from "react";
 import {
-  BeyondStyles,
   createComponent,
-  PropsOf,
+  BeyondStyles,
+  css as BeyondCssFactory,
   createStyles,
   SystemProps,
-  extractCssInterpolationFromProps
+  PropsOf
 } from "@beyond-ui/system";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
+import { ThemeContext } from "@beyond-ui/shared";
 
-export interface FlexBoxProps
-  extends SystemProps,
-    Omit<PropsOf<"div">, keyof SystemProps> {}
+export interface FlexBoxProps extends SystemProps, PropsOf<"div"> {}
 
 export const FlexBox: React.FC<FlexBoxProps> = props => {
-  const cssInter = extractCssInterpolationFromProps(props);
+  const { children, ...restProps } = props;
+  const themeContext = React.useContext(ThemeContext);
 
-  const className = css({
-    display: "flex",
-    ...(cssInter as {})
-  });
+  const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
-  // sizing props are passed here to overide the default sizings
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
-  return createComponent("div", { ...props, className }, style);
+
+  const className = css(
+    {
+      display: "flex"
+    },
+    styleFromProps
+  );
+
+  return createComponent("div", { ...props, className }, style, children);
 };
 
 FlexBox.displayName = "BeyondFlexBox";

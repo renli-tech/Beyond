@@ -1,59 +1,33 @@
 import {
-  createComponent,
   BeyondStyles,
-  PropsOf,
+  createComponent,
   createStyles,
+  PropsOf,
   SystemProps,
-  extractCssInterpolationFromProps
+  css as BeyondCssFactory
 } from "@beyond-ui/system";
-import { getColor, getFontSize } from "@beyond-ui/theme";
-import { useColor } from "@beyond-ui/shared";
-import React from "react";
+import { ThemeContext } from "@beyond-ui/shared";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
-export const TextSizes = {
-  xs: getFontSize("xs"),
-  sm: getFontSize("sm"),
-  base: getFontSize("base"),
-  lg: getFontSize("lg"),
-  xl: getFontSize("xl"),
-  "2xl": getFontSize("2xl"),
-  "3xl": getFontSize("3xl"),
-  "4xl": getFontSize("4xl"),
-  "5xl": getFontSize("5xl"),
-  "6xl": getFontSize("6xl"),
-  "7xl": getFontSize("7xl"),
-  "8xl": getFontSize("8xl"),
-  "9xl": getFontSize("9xl")
-} as const;
+import * as React from "react";
 
-export interface TextProps
-  extends SystemProps,
-    Omit<PropsOf<"span">, keyof SystemProps> {
-  size?: keyof typeof TextSizes;
-}
+export interface TextProps extends SystemProps, PropsOf<"span"> {}
 
 export const Text: React.FC<TextProps> = props => {
-  const { bgcolor, color, size } = props;
+  const { children, ...restProps } = props;
+  const themeContext = React.useContext(ThemeContext);
 
-  const textSize = TextSizes[size || "base"];
-  const style = createStyles<BeyondStyles>(
-    {
-      ...textSize
-    },
-    GlobalStyles
+  const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
+
+  const className = css(styleFromProps);
+
+  const style = createStyles<BeyondStyles>({}, GlobalStyles);
+  return createComponent<TextProps>(
+    "span",
+    { ...props, className },
+    style,
+    children
   );
-
-  const cssInter = extractCssInterpolationFromProps(props);
-
-  const className = css({
-    color: useColor(color || "black"),
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white"),
-    ...(cssInter as {})
-  });
-
-  return createComponent<TextProps>("span", { ...props, className }, style);
 };
 
 Text.displayName = "BeyondText";

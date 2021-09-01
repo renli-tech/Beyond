@@ -3,11 +3,10 @@ import {
   BeyondStyles,
   PropsOf,
   createStyles,
-  extractCssInterpolationFromProps,
+  css as BeyondCssFactory,
   SystemProps
 } from "@beyond-ui/system";
-import { ColorName, getColor } from "@beyond-ui/theme";
-import { useColor, useSpacing } from "@beyond-ui/shared";
+import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import React from "react";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
@@ -15,7 +14,7 @@ import { css } from "@emotion/css";
 export const AvatarSizes = {
   xs: { width: "1rem", height: "1rem" },
   sm: { width: "2rem", height: "2rem" },
-  base: { width: "3rem", height: "3rem" },
+  base: { width: "2.5rem", height: "2.5rem" },
   lg: { width: "4rem", height: "4rem" },
   xl: { width: "5rem", height: "5rem" },
   "2xl": { width: "6rem", height: "6rem" },
@@ -28,15 +27,16 @@ export const AvatarSizes = {
   "9xl": { width: "22rem", height: "22rem" }
 } as const;
 
-export interface AvatarProps
-  extends SystemProps,
-    Omit<PropsOf<"img">, keyof SystemProps> {
-  bgcolor?: ColorName | string;
+export interface AvatarProps extends SystemProps, PropsOf<"img"> {
   size?: keyof typeof AvatarSizes;
 }
 
 export const Avatar: React.FC<AvatarProps> = props => {
-  const { bgcolor, size } = props;
+  const { size, children, ...restProps } = props;
+
+  const themeContext = React.useContext(ThemeContext);
+
+  const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
   const avatarSize = AvatarSizes[size || "base"];
   const style = createStyles<BeyondStyles>(
@@ -46,17 +46,21 @@ export const Avatar: React.FC<AvatarProps> = props => {
     GlobalStyles
   );
 
-  const cssInter = extractCssInterpolationFromProps(props);
+  const className = css(
+    {
+      cursor: "pointer",
+      borderRadius: useSpacing("full")
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    },
+    styleFromProps
+  );
 
-  const className = css({
-    cursor: "pointer",
-    borderRadius: useSpacing("full"),
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("white"),
-    ...(cssInter as {})
-  });
-
-  return createComponent<AvatarProps>("img", { ...props, className }, style);
+  return createComponent<AvatarProps>(
+    "img",
+    { ...props, className },
+    style,
+    children
+  );
 };
 
 Avatar.displayName = "BeyondAvatar";

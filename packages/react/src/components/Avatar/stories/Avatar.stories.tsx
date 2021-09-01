@@ -2,7 +2,8 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import { Avatar } from "../Avatar";
-import { Container } from "../../Container";
+// import { Container } from "../../Container";
+import { Card } from "../../Card";
 export default {
   title: "Avatar",
   component: Avatar
@@ -10,7 +11,16 @@ export default {
 
 export const Basic = () => {
   return (
-    <Container bgcolor='red'>
+    <Avatar
+      src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
+      title='Renli Logo'
+    />
+  );
+};
+
+export const Sized = () => {
+  return (
+    <Card>
       <Avatar
         src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
         size='xs'
@@ -41,6 +51,6 @@ export const Basic = () => {
         size='3xl'
         title='Renli Logo'
       />
-    </Container>
+    </Card>
   );
 };

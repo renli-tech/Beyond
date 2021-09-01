@@ -1,55 +1,80 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
-  createComponent,
   BeyondStyles,
-  PropsOf,
+  createComponent,
   createStyles,
+  PropsOf,
   SystemProps,
-  extractCssInterpolationFromProps
+  css as BeyondCssFactory
 } from "@beyond-ui/system";
-import { ColorName, getColor } from "@beyond-ui/theme";
-import { useColor, useSpacing } from "@beyond-ui/shared";
-import React from "react";
+import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
-export interface TextInputProps
-  extends SystemProps,
-    Omit<PropsOf<"input">, keyof SystemProps> {
-  bgcolor?: ColorName | string;
-  color?: ColorName | string;
-  placeHolderColor?: ColorName | string;
+import * as React from "react";
+import { ColorName } from "@beyond-ui/theme";
+import { Property } from "csstype";
+
+type InputType =
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
+export interface TextInputProps extends SystemProps, PropsOf<"input"> {
+  placeHolderColor?: ColorName | Property.Color;
+  type: InputType;
 }
 
 export const TextInput: React.FC<TextInputProps> = props => {
-  const { bgcolor, color, placeHolderColor } = props;
+  const { children, placeHolderColor, ...restProps } = props;
+  const themeContext = React.useContext(ThemeContext);
+
+  const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
 
-  const cssInter = extractCssInterpolationFromProps(props);
-
-  const className = css({
-    border: "none",
-    outline: "none",
-    borderRadius: useSpacing("3"),
-    padding: useSpacing("2"),
-    paddingLeft: useSpacing("4"),
-    paddingRight: useSpacing("4"),
-    width: useSpacing("40"),
-    color: useColor(color || "black"),
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor!) : getColor("gray", "100"),
-    "::placeholder": {
-      color: placeHolderColor
-        ? useColor(placeHolderColor!)
-        : getColor("gray", "400")
+  const className = css(
+    {
+      border: "none",
+      outline: "none",
+      borderRadius: useSpacing("3"),
+      padding: useSpacing("2"),
+      paddingLeft: useSpacing("4"),
+      paddingRight: useSpacing("4"),
+      width: "max-content",
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      backgroundColor: useColor("gray-100"),
+      "::placeholder": {
+        color: placeHolderColor
+          ? useColor(placeHolderColor!)
+          : useColor("gray-400")
+      }
     },
-    ...(cssInter as {})
-  });
+    styleFromProps
+  );
 
   return createComponent<TextInputProps>(
     "input",
     { ...props, className },
-    style
+    style,
+    children
   );
 };
 
