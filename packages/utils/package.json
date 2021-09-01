@@ -1,6 +1,6 @@
 {
   "name": "@beyond-ui/utils",
-  "version": "2.0.0",
+  "version": "1.0.1",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -34,5 +34,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  }
+  },
+  "dependencies": {}
 }
