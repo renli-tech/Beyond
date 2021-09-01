@@ -2,7 +2,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import { FlexBox } from "../FlexBox";
-import { Avatar } from "../../Avatar";
+import { Button } from "../../Button";
 export default {
   title: "Flex Box",
   component: FlexBox
@@ -11,21 +11,27 @@ export default {
 export const Basic = () => {
   return (
     <FlexBox alignItems='center' contents='space-evenly'>
-      <Avatar
-        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
-        size='lg'
-        title='Renli Logo'
-      />
-      <Avatar
-        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
-        size='4xl'
-        title='Renli Logo'
-      />
-      <Avatar
-        src='https://avatars.githubusercontent.com/u/80798883?s=200&v=4'
-        size='8xl'
-        title='Renli Logo'
-      />
+      <Button
+        radius='12'
+        onClick={() => console.log("hello")}
+        backgroundColorScheme='green'
+        title='Hello World'
+        cursor='move'
+        ring={4}
+      >
+        Submit Form
+      </Button>
+      <Button
+        size='xs'
+        radius='12'
+        onClick={() => console.log("hello")}
+        backgroundColorScheme='green'
+        title='Hello World'
+        cursor='move'
+        ring={4}
+      >
+        Submit Form
+      </Button>
     </FlexBox>
   );
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { Meta } from "@storybook/react";
 import { Button } from "../Button";
 import { ThemeProvider } from "@beyond-ui/shared";
+
 export default {
   title: "Button",
   component: Button
@@ -15,7 +16,21 @@ export const Basic = () => {
       onClick={() => console.log("hello")}
       backgroundColorScheme='green'
       title='Hello World'
-      cursor='move'
+      ring={4}
+    >
+      Submit Form
+    </Button>
+  );
+};
+export const Loading = () => {
+  return (
+    <Button
+      radius='12'
+      onClick={() => console.log("hello")}
+      backgroundColorScheme='green'
+      title='Hello World'
+      isLoading={true}
+      loadingText='Loading Posts'
       ring={4}
     >
       Submit Form

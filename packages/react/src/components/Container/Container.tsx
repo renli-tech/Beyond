@@ -1,42 +1,40 @@
 import {
   createComponent,
   BeyondStyles,
-  PropsOf,
+  css as BeyondCssFactory,
   createStyles,
   SystemProps,
-  extractCssInterpolationFromProps
+  PropsOf
 } from "@beyond-ui/system";
-import { getColor, getSpacing } from "@beyond-ui/theme";
-import { useColor, useSpacing } from "@beyond-ui/shared";
+import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import React from "react";
 import { css } from "@emotion/css";
 import { GlobalStyles } from "../../GlobalStyles";
 
-export interface ContainerProps
-  extends SystemProps,
-    Omit<PropsOf<"div">, keyof SystemProps> {}
+export interface ContainerProps extends SystemProps, PropsOf<"div"> {}
 
 export const Container: React.FC<ContainerProps> = props => {
-  const { bgcolor, color } = props;
+  const { children, ...restProps } = props;
+  const themeContext = React.useContext(ThemeContext);
+
+  const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
 
-  const cssInter = extractCssInterpolationFromProps(props);
+  const className = css(
+    {
+      paddingRight: useSpacing("3"),
+      paddingLeft: useSpacing("3")
+    },
+    styleFromProps
+  );
 
-  const className = css({
-    borderRadius: useSpacing("0"),
-    width: "100%",
-    paddingRight: getSpacing("3"),
-    paddingLeft: getSpacing("3"),
-    marginRight: "auto",
-    marginLeft: "auto",
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    backgroundColor: bgcolor ? useColor(bgcolor) : getColor("white"),
-    color: color ? useColor(color) : getColor("gray", "900"),
-    ...(cssInter as {})
-  });
-
-  return createComponent<ContainerProps>("div", { ...props, className }, style);
+  return createComponent<ContainerProps>(
+    "div",
+    { ...props, className },
+    style,
+    children
+  );
 };
 
 Container.displayName = "BeyondContainer";
