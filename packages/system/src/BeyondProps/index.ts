@@ -1,7 +1,7 @@
 import { merge } from "@beyond-ui/utils";
 import { BackgroundProps, backgroundPropsResolvers } from "./background.props";
 import { BorderProps } from "./border.props";
-import { ColorProps } from "./color.props";
+import { ColorProps, colorPropsResolver } from "./color.props";
 import { EffectProps } from "./effect.props";
 import { FlexboxProps, flexboxPropsResolvers } from "./flex.props";
 import { GridProps } from "./grid.props";
@@ -54,6 +54,7 @@ export interface SystemProps
 }
 
 export const systemPropsResolvers = merge(
+  colorPropsResolver,
   backgroundPropsResolvers,
   ringPropsResolvers,
   mediaQueriesPropsResolver,

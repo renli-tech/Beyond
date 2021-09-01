@@ -14,16 +14,18 @@ export type BeyondComponent = React.ReactElement;
 
 export type Target = keyof JSX.IntrinsicElements | React.FunctionComponent;
 
+type PropsWeControl = "as" | "color";
+
 export type RemovePropsWeControl<ElementProps, OurProps> = Omit<
   ElementProps,
   keyof OurProps
 >;
-export type PropsOf<
-  TTag extends keyof JSX.IntrinsicElements
-> = React.ComponentProps<TTag>;
+export type PropsOf<TTag extends keyof JSX.IntrinsicElements> = Omit<
+  React.ComponentProps<TTag>,
+  PropsWeControl
+>;
 
-export type Props<OurProps> = React.HTMLAttributes<HTMLElement> &
-  React.ClassAttributes<HTMLElement> &
+export type Props<OurProps> = OurProps &
   RemovePropsWeControl<
     React.HTMLAttributes<HTMLElement> & React.ClassAttributes<HTMLElement>,
     OurProps

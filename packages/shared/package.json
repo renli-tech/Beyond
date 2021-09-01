@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@beyond-ui/system": "^1.0.1",
-    "@beyond-ui/theme": "^1.0.1"
+    "@beyond-ui/theme": "^1.0.1",
+    "@beyond-ui/utils": "^1.0.1"
   }
 }

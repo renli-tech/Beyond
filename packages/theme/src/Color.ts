@@ -3,6 +3,8 @@
  * Thanks to the guys at https://github.com/tailwindlabs/tailwindcss for the color codes and names
  */
 
+import { Dict, flatten, convertColorToRgba } from "@beyond-ui/utils";
+
 export const colors = {
   black: "#000",
   transparent: "transparent",
@@ -325,6 +327,57 @@ export const getColor: ColorFunction = (name, shade) => {
 
   return value;
 };
+
+export const extractColor = (colorString: string, colors: {}): string => {
+  const opacity = colorString.includes(" opacity-")
+    ? parseInt(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        colorString
+          .split(" ")
+          .find(s => s.includes("opacity-"))!
+          ?.split("-")[1]
+      )
+    : 100;
+
+  colorString = colorString.split(" ")[0];
+  const flattenedColors: Dict<string> = flatten(colors);
+  if (!Object.keys(flattenedColors).includes(colorString)) {
+    return convertColorToRgba(colorString, opacity);
+  }
+
+  return convertColorToRgba(flattenedColors[colorString], opacity);
+};
+
+// // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// export const resolveColor = (name: string, theme?: Theme) => {
+//   const colorExistInTheme = (colorName: string, theme: Theme): boolean => {
+//     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+//     if (colorName in theme.colors!) {
+//       return true;
+//     }
+
+//     return false;
+//   };
+
+//   let color;
+
+//   // checking if color already exist theme
+//   // user-defined theme colors are used instead of the base theme
+//   if (theme?.colors && colorExistInTheme(name, theme)) {
+//     color = theme.colors[name] as string;
+//     return color;
+//   }
+
+//   if (name in colors) {
+//     // console.log("found");
+//     const n = getColor(name as ColorName);
+//     color = n;
+//     return;
+//   }
+//   // console.log(theme);
+
+//   return color;
+// };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function isOfTypeColor<T extends ColorName = ColorName>(k: any): k is T {

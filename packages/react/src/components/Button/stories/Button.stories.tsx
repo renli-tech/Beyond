@@ -12,12 +12,13 @@ export const Basic = () => {
   return (
     <Button
       radius='12'
+      onClick={() => console.log("hello")}
       backgroundColorScheme='green'
-      bgcolor='red'
       title='Hello World'
-      paddingLeft='200px'
+      cursor='move'
+      ring={4}
     >
-      Hello
+      Submit Form
     </Button>
   );
 };
@@ -25,7 +26,32 @@ export const Basic = () => {
 export const SizedButtons = () => {
   return (
     <div>
-      <Button size='xs'>Create Account</Button>{" "}
+      <Button
+        size='xs'
+        ring='4'
+        backgroundColorScheme='red'
+        sm={{
+          bg: "blue"
+        }}
+        landscape={{
+          bg: "green"
+        }}
+      >
+        Create Account
+      </Button>
+      <Button
+        size='2xl'
+        ring='4'
+        backgroundColorScheme='red'
+        sm={{
+          bg: "blue"
+        }}
+        landscape={{
+          bg: "green"
+        }}
+      >
+        Create Account
+      </Button>
     </div>
   );
 };
@@ -34,11 +60,15 @@ export const ThemedButton = () => {
     <ThemeProvider
       theme={{
         colors: {
-          primary: "#f00"
+          primary: "#ff0"
         }
       }}
     >
-      <Button bgcolor='green' onClick={e => console.log("clicked", e)}>
+      <Button
+        ring='7'
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onClick={(e: any) => console.log("clicked", e)}
+      >
         Hello World
       </Button>
     </ThemeProvider>

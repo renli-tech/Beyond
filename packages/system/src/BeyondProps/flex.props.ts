@@ -1,6 +1,6 @@
 import { Property } from "csstype";
 import { SystemProps } from ".";
-import { SpacingName, isOfTypeSpacing, getSpacing } from "../../../theme/dist";
+import { SpacingName, isOfTypeSpacing, getSpacing } from "@beyond-ui/theme";
 import { Token } from "./types";
 
 export const flexboxPropsResolvers = {

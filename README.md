@@ -10,13 +10,13 @@ A design system for Renli</p>
 
 ## Packages
 
-| package                                            | version |
-| -------------------------------------------------- | ------- |
-| [@beyond-ui/shared](./packages/shared)             | 0.0.0   |
-| [@beyond-ui/react](./packages/react)               | 0.0.0   |
-| [@beyond-ui/react-native](./packages/react-native) | 0.0.0   |
-| [@beyond-ui/theme](./packages/theme)               | 0.0.0   |
-| [@beyond-ui/system](./packages/system)             | 0.0.0   |
+| packages  
+| --------------------------------------------------
+| [@beyond-ui/shared](./packages/shared)  
+| [@beyond-ui/react](./packages/react)  
+| [@beyond-ui/react-native](./packages/react-native)
+| [@beyond-ui/theme](./packages/theme)  
+| [@beyond-ui/system](./packages/system)
 
 <br/>
 
