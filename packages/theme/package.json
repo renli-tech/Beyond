@@ -33,9 +33,9 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@beyond-ui/utils": "^1.0.1"
+    "@beyond-ui/utils": "^0.0.0"
   }
 }
