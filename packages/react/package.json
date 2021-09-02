@@ -37,7 +37,8 @@
     "react-dom": "^16 || ^17 || ^18"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "dependencies": {
     "@beyond-ui/shared": "^1.0.1",
