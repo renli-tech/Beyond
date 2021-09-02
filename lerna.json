@@ -1,12 +1,12 @@
 {
   "version": "independent",
   "useWorkspaces": true,
-  "npmClient": "npm",
+  "npmClient": "yarn",
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
       "message": "chore: publish new release",
-      "registry": "https://npm.pkg.github.com"
+      "registry": "https://registry.npmjs.org/"
     }
   },
   "packages": [
