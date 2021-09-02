@@ -6,7 +6,8 @@
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
       "message": "chore: publish new release",
-      "registry": "https://registry.npmjs.org/"
+      "registry": "https://registry.npmjs.org/",
+      "access": "public"
     }
   },
   "packages": [
