@@ -47,7 +47,7 @@
     "lint": "run-p --continue-on-error lint:*",
     "lint:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .ts,.tsx .",
     "lint:other": "yarn prettier --check",
-    "lerna:publish": "npx lerna publish --conventional-commits",
+    "lerna:publish": "npx lerna publish --conventional-commits from-package",
     "lerna:changed": "npx lerna changed",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "storybook": "start-storybook -p 6006 -s public",
