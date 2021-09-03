@@ -8,3 +8,5 @@ export * from "./components/FlexBox";
 export * from "./components/Container";
 export * from "./components/Avatar";
 export * from "./components/Text";
+export * from "./components/ToolTip";
+export * from "./components/Glass";
