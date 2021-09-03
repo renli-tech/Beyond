@@ -13,18 +13,13 @@ import { css } from "@emotion/css";
 
 export const AvatarSizes = {
   xs: { width: "1rem", height: "1rem" },
-  sm: { width: "2rem", height: "2rem" },
-  base: { width: "2.5rem", height: "2.5rem" },
-  lg: { width: "4rem", height: "4rem" },
-  xl: { width: "5rem", height: "5rem" },
-  "2xl": { width: "6rem", height: "6rem" },
-  "3xl": { width: "8rem", height: "8rem" },
-  "4xl": { width: "12rem", height: "12rem" },
-  "5xl": { width: "14rem", height: "14rem" },
-  "6xl": { width: "16rem", height: "16rem" },
-  "7xl": { width: "18rem", height: "18rem" },
-  "8xl": { width: "20rem", height: "20rem" },
-  "9xl": { width: "22rem", height: "22rem" }
+  sm: { width: "1.25rem", height: "1.25rem" },
+  base: { width: "1.5rem", height: "1.5rem" },
+  lg: { width: "1.75rem", height: "1.75rem" },
+  xl: { width: "2rem", height: "2rem" },
+  "2xl": { width: "2.25rem", height: "2.25rem" },
+  "3xl": { width: "2.5rem", height: "2.5rem" },
+  "4xl": { width: "2.75rem", height: "2.75rem" }
 } as const;
 
 export interface AvatarProps extends SystemProps, PropsOf<"img"> {
