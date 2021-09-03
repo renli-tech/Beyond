@@ -25,7 +25,7 @@ export const Basic = () => {
 export const Loading = () => {
   return (
     <Button
-      radius='12'
+      rounded='md'
       onClick={() => console.log("hello")}
       backgroundColorScheme='green'
       title='Hello World'
