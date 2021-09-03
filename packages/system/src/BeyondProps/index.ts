@@ -1,6 +1,6 @@
 import { merge } from "@beyond-ui/utils";
 import { BackgroundProps, backgroundPropsResolvers } from "./background.props";
-import { BorderProps } from "./border.props";
+import { BorderProps, borderPropsResolvers } from "./border.props";
 import { ColorProps, colorPropsResolver } from "./color.props";
 import { EffectProps } from "./effect.props";
 import { FlexboxProps, flexboxPropsResolvers } from "./flex.props";
@@ -62,5 +62,6 @@ export const systemPropsResolvers = merge(
   layoutPropsResolver,
   positionPropsResolvers,
   transformPropsResolvers,
-  spacingPropsResolvers
+  spacingPropsResolvers,
+  borderPropsResolvers
 );
