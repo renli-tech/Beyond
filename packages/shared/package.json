@@ -1,6 +1,6 @@
 {
   "name": "@beyond-ui/shared",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -37,8 +37,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@beyond-ui/system": "^1.0.1",
-    "@beyond-ui/theme": "^1.0.1",
-    "@beyond-ui/utils": "^0.0.0"
+    "@beyond-ui/system": "^1.1.0",
+    "@beyond-ui/theme": "^1.0.2",
+    "@beyond-ui/utils": "^0.0.1"
   }
 }

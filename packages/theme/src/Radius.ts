@@ -11,3 +11,7 @@ export const rounded = {
 } as const;
 
 export type RoundedValues = keyof typeof rounded;
+
+export const getRadius = (name: RoundedValues): string => {
+  return rounded[name];
+};

@@ -1,7 +1,20 @@
-import { ColorName, RoundedValues } from "@beyond-ui/theme";
+import { ColorName, RoundedValues, getRadius } from "@beyond-ui/theme";
 import { Property } from "csstype";
+import { SystemProps } from ".";
 import { Token } from "./types";
 
+const roundedResolver = (propVal: keyof BorderProps) => (
+  prop: RoundedValues
+): SystemProps => {
+  const finalValue = getRadius(prop);
+  return {
+    [propVal]: finalValue
+  };
+};
+
+export const borderPropsResolvers = {
+  rounded: roundedResolver("borderRadius")
+};
 export interface BorderProps {
   /**
    * The CSS `border` property
@@ -97,17 +110,9 @@ export interface BorderProps {
    */
   borderTopRadius?: Token<Property.BorderRadius>;
   /**
-   * The CSS `border-top-left-radius` property and `border-top-right-radius`
-   */
-  roundedTop?: Token<RoundedValues>;
-  /**
    * The CSS `border-right-radius` property
    */
   borderRightRadius?: Token<Property.BorderRadius>;
-  /**
-   * The CSS `border-top-right-radius` property and `border-bottom-right-radius`
-   */
-  roundedRight?: Token<RoundedValues>;
   /**
    * The CSS `border-bottom-radius` property
    */
@@ -121,19 +126,9 @@ export interface BorderProps {
    */
   borderTopLeftRadius?: Token<Property.BorderRadius>;
   /**
-   * The CSS `border-top-left-radius` property
-   */
-  roundedTopLeft?: Token<RoundedValues>;
-  /**
    * The CSS `border-top-right-radius` property
    */
   borderTopRightRadius?: Token<Property.BorderRadius>;
-  borderTopEndRadius?: Token<Property.BorderRadius>;
-  borderStartEndRadius?: Token<Property.BorderStartEndRadius>;
-  /**
-   * The CSS `border-top-right-radius` property
-   */
-  roundedTopRight?: Token<RoundedValues>;
   /**
    * The CSS `border-bottom-left-radius` property
    */
@@ -142,18 +137,4 @@ export interface BorderProps {
    * The CSS `border-bottom-right-radius` property
    */
   borderBottomRightRadius?: Token<Property.BorderRadius>;
-  borderBottomEndRadius?: Token<Property.BorderRadius>;
-  borderEndEndRadius?: Token<Property.BorderEndEndRadius>;
-  /**
-   * The CSS `border-bottom-right-radius` property
-   */
-  roundedBottomRight?: Token<RoundedValues>;
-  /**
-   * The CSS `border-right` and `border-left` property
-   */
-  borderHorizontal?: Token<Property.Border>;
-  /**
-   * The CSS `border-top` and `border-bottom` property
-   */
-  borderVertical?: Token<Property.Border>;
 }

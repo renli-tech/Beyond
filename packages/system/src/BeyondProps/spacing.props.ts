@@ -16,11 +16,13 @@ function resolveSpace<T>(f: string) {
 
 export const spacingPropsResolvers = {
   m: resolveSpace<Property.Margin>("margin"),
+  margin: resolveSpace<Property.Margin>("margin"),
   mt: resolveSpace<Property.MarginTop>("marginTop"),
   ml: resolveSpace<Property.MarginLeft>("marginLeft"),
   mb: resolveSpace<Property.MarginBottom>("marginBottom"),
   mr: resolveSpace<Property.MarginRight>("marginRight"),
   p: resolveSpace<Property.Padding>("padding"),
+  padding: resolveSpace<Property.Padding>("padding"),
   pt: resolveSpace<Property.PaddingTop>("paddingTop"),
   pl: resolveSpace<Property.PaddingLeft>("paddingLeft"),
   pb: resolveSpace<Property.PaddingBottom>("paddingBottom"),

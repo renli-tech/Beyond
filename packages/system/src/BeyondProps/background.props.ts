@@ -21,8 +21,6 @@ const backgroundColorResolver = () => (
  */
 
 export const backgroundPropsResolvers = {
-  bg: backgroundColorResolver(),
-  background: backgroundColorResolver(),
   backgroundColor: backgroundColorResolver(),
   bgcolor: backgroundColorResolver(),
   bgPosition: "backgroundPosition",
@@ -37,7 +35,7 @@ export interface BackgroundProps {
   /**
    * The CSS `background` property
    */
-  bg?: Token<ColorName | Property.Color>;
+  bg?: Property.Background;
   /**
    * The CSS `background-clip` property
    */
@@ -49,7 +47,7 @@ export interface BackgroundProps {
   /**
    * The CSS `background` property
    */
-  background?: Token<ColorName | Property.Color>;
+  background?: Property.Background;
   /**
    * The CSS `background-color` property
    */
