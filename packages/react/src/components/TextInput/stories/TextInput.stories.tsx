@@ -8,5 +8,5 @@ export default {
 } as Meta;
 
 export const Basic = () => {
-  return <TextInput placeholder='Write Something' type='file' />;
+  return <TextInput placeholder='Write Something' type='email' />;
 };

@@ -11,7 +11,17 @@ export default {
 export const Basic = () => {
   return (
     <Container padding='72'>
-      <ToolTip aria-label='Life is not that problematic' toolTipPosition='west'>
+      <ToolTip aria-label='Life' placement='north'>
+        This text is very long
+      </ToolTip>
+    </Container>
+  );
+};
+
+export const WithoutArrow = () => {
+  return (
+    <Container padding='72'>
+      <ToolTip aria-label='Life' placement='south' hasArrow='false'>
         This text is very long
       </ToolTip>
     </Container>
