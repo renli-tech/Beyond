@@ -1,6 +1,6 @@
 {
   "name": "@beyond-ui/react-native",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -37,7 +37,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@beyond-ui/system": "^1.2.0",
+    "@beyond-ui/system": "^1.2.1",
     "@beyond-ui/theme": "^1.1.0"
   },
   "gitHead": "a15647a6a927e53b2549f8e37899171953d1239d"
