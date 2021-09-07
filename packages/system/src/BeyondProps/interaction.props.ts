@@ -2,6 +2,17 @@ import { ColorName } from "@beyond-ui/theme";
 import { Property } from "csstype";
 import { Token } from "./types";
 
+export const interactionPropsResolver = {
+  appearance: "appearance",
+  userSelect: "userSelect",
+  pointerEvents: "pointerEvents",
+  resize: "resize",
+  cursor: "cursore",
+  outline: "outline",
+  outlineOffset: "outlineOffset",
+  outlineColor: "outlineColor"
+};
+
 export interface InteractionProps {
   /**
    * The CSS `appearance` property

@@ -7,4 +7,6 @@ export * from "./Radius";
 export * from "./BreakPoints";
 export * from "./Transforms";
 export * from "./Transitions";
+export * from "./Grid";
+export * from "./Shadow";
 export * from "./defaultTheme";

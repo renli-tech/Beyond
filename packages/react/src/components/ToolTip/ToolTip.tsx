@@ -3,7 +3,8 @@ import {
   BeyondStyles,
   createComponent,
   createStyles,
-  css as BeyondCssFactory
+  css as BeyondCssFactory,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { TextProps } from "../Text";
 import { css, keyframes } from "@emotion/css";
@@ -12,23 +13,26 @@ import { GlobalStyles } from "../../GlobalStyles";
 import { ColorName } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
-export type ToolTipPosition = "north" | "south" | "east" | "west";
+export type Placement = "north" | "south" | "east" | "west";
 
 export interface ToolTipProps extends TextProps {
-  toolTipPosition?: ToolTipPosition;
+  placement?: Placement;
+  hasArrow?: boolean | "true" | "false";
   toolTipBg?: ColorName | Property.Color;
 }
 
 export const ToolTip: React.FC<ToolTipProps> = props => {
-  const { children, toolTipBg, toolTipPosition, ...restProps } = props;
+  const { children, toolTipBg, placement, hasArrow, ...restProps } = props;
 
   const themeContext = React.useContext(ThemeContext);
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const getToolTipPositonStyle = () => {
-    switch (toolTipPosition) {
+    switch (placement) {
       case "north":
         return {
           after: {
@@ -37,7 +41,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
           },
           before: {
             top: "-10px",
-            left: "20%"
+            left: "20px"
           }
         };
 
@@ -49,7 +53,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
           },
           before: {
             bottom: "-12px",
-            left: "20%"
+            left: "20px"
           }
         };
 
@@ -118,6 +122,9 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
           animationFillMode: "forwards",
           animationTimingFunction: "ease-in",
           animationDelay: ".1s"
+        },
+        "::before": {
+          display: hasArrow ? "inline-block" : "none"
         }
       },
       "::after": {
@@ -132,7 +139,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
         wordWrap: "break-word",
         whiteSpace: "pre",
         pointerEvents: "none",
-        zIndex: 9999999999999,
+        zIndex: 1000000,
         opacity: 0,
         display: "none",
         fontSize: "12px",
@@ -144,7 +151,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
       },
       "::before": {
         position: "absolute",
-        zIndex: 9999999999999,
+        zIndex: 1000001,
         display: "none",
         width: 0,
         height: 0,
@@ -165,7 +172,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
 
   return createComponent<ToolTipProps>(
     "span",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

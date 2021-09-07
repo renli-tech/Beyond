@@ -26,7 +26,9 @@ export const ringPropsResolvers = {
     return {
       boxShadow: boxShadow
     };
-  }
+  },
+  ringColor: "ringColor",
+  ringInset: "ringInset"
 };
 export interface RingProps {
   /**

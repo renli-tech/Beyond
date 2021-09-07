@@ -109,7 +109,9 @@ export const transformPropsResolvers = {
     return {
       transformOrigin: finalValue
     };
-  }
+  },
+  transform: "transform",
+  clipPath: "clipPath"
 };
 
 export interface TransformProps {

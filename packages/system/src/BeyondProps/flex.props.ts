@@ -26,7 +26,24 @@ export const flexboxPropsResolvers = {
         marginBottom: finalVal
       }
     };
-  }
+  },
+  alignItems: "alignItems",
+  alignContent: "alignContent",
+  justifyItems: "justifyItems",
+  justifyContent: "justifyContent",
+  flexWrap: "flexWrap",
+  flexFlow: "flexFlow",
+  flexBasis: "flexBasis",
+  flexDirection: "flexDirection",
+  flex: "flex",
+  justifySelf: "justifySelf",
+  alignSelf: "alignSelf",
+  order: "order",
+  flexGrow: "flexGrow",
+  flexShrink: "flexShrink",
+  placeItems: "placeItems",
+  placeContent: "placeContent",
+  placeSelf: "placeSelf"
 };
 
 export interface FlexboxProps {

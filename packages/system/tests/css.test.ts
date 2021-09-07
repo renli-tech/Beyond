@@ -54,7 +54,7 @@ it("resolves ring feature", () => {
     ring: "20",
     ringColor: "red-500",
     sm: {
-      bg: "red"
+      bgcolor: "red"
     }
   })();
 

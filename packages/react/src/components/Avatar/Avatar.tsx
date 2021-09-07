@@ -4,7 +4,8 @@ import {
   PropsOf,
   createStyles,
   css as BeyondCssFactory,
-  SystemProps
+  SystemProps,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import React from "react";
@@ -31,6 +32,8 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   const themeContext = React.useContext(ThemeContext);
 
+  const elementProps = omitSystemProps(restProps);
+
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
   const avatarSize = AvatarSizes[size || "base"];
@@ -52,7 +55,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   return createComponent<AvatarProps>(
     "img",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

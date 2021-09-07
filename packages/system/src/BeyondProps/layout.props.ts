@@ -43,7 +43,25 @@ export const layoutPropsResolver = {
       height: widthResolver(prop).width,
       width: widthResolver(prop).width
     };
-  }
+  },
+  display: "display",
+  verticalAlign: "verticalDisplay",
+  overflow: "overflow",
+  overflowX: "overflowX",
+  overflowY: "overflowY",
+  boxSizing: "boxSizing",
+  boxDecorationBreak: "boxDecorationBreak",
+  float: "float",
+  objectFit: "objectFit",
+  objectPosition: "objectPosition",
+  overscrollBehavior: "overscrollBehavior",
+  overscroll: "overscrollBehavior",
+  overscrollBehaviorX: "overscrollBehaviorX",
+  overscrollX: "overscrollBehaviorX",
+  overscrollBehaviorY: "overscrollBehaviorY",
+  overscrollY: "overscrollBehaviorY",
+  visibility: "visibility",
+  isolation: "isolation"
 };
 
 export interface LayoutProps {

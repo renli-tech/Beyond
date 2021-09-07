@@ -3,7 +3,7 @@ import { SystemProps } from "./index";
 import { SpacingName, isOfTypeSpacing, getSpacing } from "@beyond-ui/theme";
 import { Token } from "./types";
 
-function resolveSpace<T>(f: string) {
+export function resolveSpace<T>(f: string) {
   return (prop: SpacingName | T): SystemProps => {
     const finalValue = isOfTypeSpacing(prop)
       ? getSpacing(prop as SpacingName)
@@ -98,7 +98,15 @@ export const spacingPropsResolvers = {
       paddingTop: finalValue,
       paddingBottom: finalValue
     };
-  }
+  },
+  marginTop: resolveSpace<Property.MarginTop>("marginTop"),
+  marginRight: resolveSpace<Property.MarginRight>("marginRight"),
+  marginBottom: resolveSpace<Property.MarginBottom>("marginBottom"),
+  marginLeft: resolveSpace<Property.MarginLeft>("marginLeft"),
+  paddingTop: resolveSpace<Property.PaddingTop>("paddingTop"),
+  paddingRight: resolveSpace<Property.PaddingRight>("paddingRight"),
+  paddingBottom: resolveSpace<Property.PaddingBottom>("paddingBottom"),
+  paddingLeft: resolveSpace<Property.PaddingLeft>("paddingLeft")
 };
 
 export interface SpacingProps {
