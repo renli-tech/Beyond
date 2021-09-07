@@ -10,7 +10,7 @@ import {
 import { css } from "@emotion/css";
 import { ThemeContext } from "@beyond-ui/shared";
 import * as React from "react";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 
 export interface GlassProps extends SystemProps, PropsOf<"div"> {
   blurRadius?: number;
@@ -34,6 +34,7 @@ export const Glass: React.FC<GlassProps> = props => {
   const elementProps = omitSystemProps(restProps);
 
   const className = css(
+    GeneralStyles,
     {
       background: `rgba( 255, 255, 255, ${transparency || 0.2})`,
       boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
@@ -48,7 +49,7 @@ export const Glass: React.FC<GlassProps> = props => {
 
   return createComponent<GlassProps>(
     "div",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

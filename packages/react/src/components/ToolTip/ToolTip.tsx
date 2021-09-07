@@ -9,7 +9,7 @@ import {
 import { TextProps } from "../Text";
 import { css, keyframes } from "@emotion/css";
 import { ThemeContext, useColor } from "@beyond-ui/shared";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { ColorName } from "@beyond-ui/theme";
 import { Property } from "csstype";
 
@@ -110,6 +110,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
   `;
 
   const className = css(
+    GeneralStyles,
     {
       position: "relative",
       cursor: "pointer",
@@ -172,7 +173,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
 
   return createComponent<ToolTipProps>(
     "span",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );
