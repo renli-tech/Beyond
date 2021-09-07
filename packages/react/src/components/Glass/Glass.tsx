@@ -4,7 +4,8 @@ import {
   SystemProps,
   css as BeyondCssFactory,
   BeyondStyles,
-  createStyles
+  createStyles,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { css } from "@emotion/css";
 import { ThemeContext } from "@beyond-ui/shared";
@@ -30,6 +31,8 @@ export const Glass: React.FC<GlassProps> = props => {
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   const className = css(
     {
       background: `rgba( 255, 255, 255, ${transparency || 0.2})`,
@@ -45,7 +48,7 @@ export const Glass: React.FC<GlassProps> = props => {
 
   return createComponent<GlassProps>(
     "div",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

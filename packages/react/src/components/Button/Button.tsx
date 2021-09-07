@@ -5,15 +5,11 @@ import {
   createStyles,
   css as BeyondCssFactory,
   SystemProps,
-  PropsOf
+  PropsOf,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
-import {
-  ColorName,
-  SpacingName,
-  getFontSize,
-  getSpacing
-} from "@beyond-ui/theme";
+import { getFontSize, getSpacing } from "@beyond-ui/theme";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css, keyframes } from "@emotion/css";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -34,11 +30,23 @@ export const ButtonSizes = {
   "9xl": getFontSize("9xl")
 } as const;
 
-const ButtonChild: React.FC<{
-  isLoading?: boolean;
-  loadingText?: string;
-  // eslint-disable-next-line react/prop-types
-}> = ({ isLoading, loadingText, children }) => {
+const ButtonContent: React.FC<Pick<
+  ButtonProps,
+  | "leftIcon"
+  | "rightIcon"
+  | "isLoading"
+  | "loadingText"
+  | "spinner"
+  | "spinnerPlacement"
+>> = ({
+  isLoading,
+  loadingText,
+  children,
+  leftIcon,
+  rightIcon,
+  spinner,
+  spinnerPlacement
+}) => {
   if (isLoading) {
     const spin = keyframes`
       0% {
@@ -59,13 +67,42 @@ const ButtonChild: React.FC<{
           alignItems: "center"
         })}
       >
-        <AiOutlineLoading3Quarters
-          className={css({
-            animation: `${spin} 0.6s linear infinite`
-          })}
-          style={{ marginRight: getSpacing("1.5") }}
-        />
-        {loadingText}
+        {spinnerPlacement === "start" &&
+          (spinner ? (
+            spinner
+          ) : (
+            <AiOutlineLoading3Quarters
+              className={css({
+                animation: `${spin} 0.6s linear infinite`
+              })}
+            />
+          ))}
+        {leftIcon && (
+          <span style={{ marginLeft: getSpacing("1.5") }}>{leftIcon}</span>
+        )}
+        {loadingText && (
+          <span
+            style={{
+              marginLeft: getSpacing("1.5"),
+              marginRight: getSpacing("1.5")
+            }}
+          >
+            {loadingText}
+          </span>
+        )}
+        {rightIcon && (
+          <span style={{ marginRight: getSpacing("1.5") }}>{rightIcon}</span>
+        )}
+        {spinnerPlacement === "end" &&
+          (spinner ? (
+            spinner
+          ) : (
+            <AiOutlineLoading3Quarters
+              className={css({
+                animation: `${spin} 0.6s linear infinite`
+              })}
+            />
+          ))}
       </span>
     );
   }
@@ -74,25 +111,39 @@ const ButtonChild: React.FC<{
 };
 
 export interface ButtonProps extends SystemProps, PropsOf<"button"> {
-  radius?: SpacingName;
-  backgroundColorScheme?: ColorName;
   isLoading?: boolean;
   loadingText?: string;
   variant?: "outline" | "dashed";
   size?: keyof typeof ButtonSizes;
+  leftIcon?: React.ReactElement;
+  rightIcon?: React.ReactElement;
+  spinner?: React.ReactElement;
+  spinnerPlacement?: "start" | "end";
 }
 
 export const Button: React.FC<ButtonProps> = props => {
-  const { size, children, isLoading, loadingText, ...restProps } = props;
+  const {
+    size,
+    children,
+    isLoading,
+    loadingText,
+    variant,
+    rightIcon,
+    leftIcon,
+    spinner,
+    spinnerPlacement = "start",
+    ...restProps
+  } = props;
   const buttonSize = ButtonSizes[size || "sm"];
 
   const themeContext = React.useContext(ThemeContext);
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   const className = css(
     {
-      border: "none",
       padding: useSpacing("2"),
       paddingLeft: useSpacing("4"),
       paddingRight: useSpacing("4"),
@@ -100,10 +151,18 @@ export const Button: React.FC<ButtonProps> = props => {
       cursor: "pointer",
       outline: "none",
       borderRadius: useSpacing("2"),
-      color: useColor("white"),
-      backgroundColor: useColor("red"),
+      color:
+        variant === "outline"
+          ? useColor((props?.color as string) || "red")
+          : useColor("white"),
+      border: variant === "outline" ? "solid 1px red" : "none",
+      backgroundColor: variant === "outline" ? "transparent" : "red",
       ":hover": {
         backgroundColor: useColor("red-600"),
+        color:
+          variant === "outline"
+            ? useColor((props?.color as string) || "white")
+            : useColor("white"),
         transition: "all ease-in-out .2s"
       }
     },
@@ -122,8 +181,19 @@ export const Button: React.FC<ButtonProps> = props => {
 
   return createComponent<ButtonProps>(
     "button",
-    { ...props, className },
+    { ...elementProps, className },
     style,
-    React.createElement(ButtonChild, { isLoading, loadingText }, children)
+    React.createElement(
+      ButtonContent,
+      {
+        isLoading,
+        loadingText,
+        rightIcon,
+        leftIcon,
+        spinner,
+        spinnerPlacement
+      },
+      children
+    )
   );
 };

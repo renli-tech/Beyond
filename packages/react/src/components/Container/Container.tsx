@@ -4,7 +4,8 @@ import {
   css as BeyondCssFactory,
   createStyles,
   SystemProps,
-  PropsOf
+  PropsOf,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import React from "react";
@@ -19,6 +20,8 @@ export const Container: React.FC<ContainerProps> = props => {
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
 
   const className = css(
@@ -31,7 +34,7 @@ export const Container: React.FC<ContainerProps> = props => {
 
   return createComponent<ContainerProps>(
     "div",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

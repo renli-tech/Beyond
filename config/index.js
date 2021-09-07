@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const { omit } = require(`lodash/fp`);
 const replace = require(`@rollup/plugin-replace`);
 const typescript = require(`rollup-plugin-typescript2`);
@@ -12,8 +13,8 @@ const progress = require(`rollup-plugin-progress`);
 const terser = require(`rollup-plugin-terser`).terser;
 const sourcemap = require(`rollup-plugin-sourcemaps`);
 
-import { clean } from './plugins/clean'
-import { copy as Cpy } from './plugins/copy';
+import { clean } from "./plugins/clean";
+import { copy as Cpy } from "./plugins/copy";
 
 const env = process.env.NODE_ENV;
 const isProduction = env === `production`;
@@ -55,6 +56,16 @@ const createOutput = (dir = `dist`, defaultOpts) => {
   };
 
   const defaultPlugins = [
+    typescript({
+      typescript: require(`typescript`),
+      tsconfigOverride,
+      objectHashIgnoreUnknownHack: true,
+      rollupCommonJSResolveHack: true
+    }),
+    nodeResolve({
+      mainFields: [`module`, `main`],
+      browser: true
+    }),
     isProduction && clean(dir),
     replace({
       "process.env.NODE_ENV": JSON.stringify(
@@ -71,20 +82,10 @@ const createOutput = (dir = `dist`, defaultOpts) => {
         ...moduleAlias,
         resolve: EXTENSIONS
       }),
-    nodeResolve({
-      mainFields: [`module`, `main`],
-      browser: true
-    }),
     commonjs({
       include: /\/node_modules\//
     }),
     json(),
-    typescript({
-      typescript: require(`typescript`),
-      tsconfigOverride,
-      objectHashIgnoreUnknownHack: true,
-      rollupCommonJSResolveHack: true
-    }),
     babel({
       babelHelpers: `bundled`,
       extensions: EXTENSIONS,

@@ -3,7 +3,8 @@ import {
   BeyondStyles,
   createComponent,
   createStyles,
-  css as BeyondCssFactory
+  css as BeyondCssFactory,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { TextProps } from "../Text";
 import { css, keyframes } from "@emotion/css";
@@ -26,6 +27,8 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
   const themeContext = React.useContext(ThemeContext);
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
+
+  const elementProps = omitSystemProps(restProps);
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const getToolTipPositonStyle = () => {
@@ -169,7 +172,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
 
   return createComponent<ToolTipProps>(
     "span",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

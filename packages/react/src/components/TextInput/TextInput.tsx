@@ -5,7 +5,8 @@ import {
   createStyles,
   PropsOf,
   SystemProps,
-  css as BeyondCssFactory
+  css as BeyondCssFactory,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
 import { GlobalStyles } from "../../GlobalStyles";
@@ -39,7 +40,7 @@ type InputType =
   | "week";
 export interface TextInputProps extends SystemProps, PropsOf<"input"> {
   placeHolderColor?: ColorName | Property.Color;
-  type: InputType;
+  type?: InputType;
 }
 
 export const TextInput: React.FC<TextInputProps> = props => {
@@ -49,6 +50,8 @@ export const TextInput: React.FC<TextInputProps> = props => {
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
+
+  const elementProps = omitSystemProps(restProps);
 
   const className = css(
     {
@@ -72,7 +75,7 @@ export const TextInput: React.FC<TextInputProps> = props => {
 
   return createComponent<TextInputProps>(
     "input",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

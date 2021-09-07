@@ -12,11 +12,12 @@ export default {
 export const Basic = () => {
   return (
     <Button
-      radius='12'
       onClick={() => console.log("hello")}
-      backgroundColorScheme='green'
+      variant='outline'
       title='Hello World'
-      ring={4}
+      isLoading
+      loadingText='Creating Your Account'
+      spinnerPlacement='end'
     >
       Submit Form
     </Button>
@@ -27,7 +28,6 @@ export const Loading = () => {
     <Button
       rounded='md'
       onClick={() => console.log("hello")}
-      backgroundColorScheme='green'
       title='Hello World'
       isLoading={true}
       loadingText='Loading Posts'
@@ -44,7 +44,6 @@ export const SizedButtons = () => {
       <Button
         size='xs'
         ring='4'
-        backgroundColorScheme='red'
         sm={{
           bg: "blue"
         }}
@@ -57,7 +56,6 @@ export const SizedButtons = () => {
       <Button
         size='2xl'
         ring='4'
-        backgroundColorScheme='red'
         sm={{
           bg: "blue"
         }}

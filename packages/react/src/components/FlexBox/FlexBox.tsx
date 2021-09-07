@@ -5,7 +5,8 @@ import {
   css as BeyondCssFactory,
   createStyles,
   SystemProps,
-  PropsOf
+  PropsOf,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
@@ -19,6 +20,8 @@ export const FlexBox: React.FC<FlexBoxProps> = props => {
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
 
   const className = css(
@@ -28,7 +31,12 @@ export const FlexBox: React.FC<FlexBoxProps> = props => {
     styleFromProps
   );
 
-  return createComponent("div", { ...props, className }, style, children);
+  return createComponent(
+    "div",
+    { ...elementProps, className },
+    style,
+    children
+  );
 };
 
 FlexBox.displayName = "BeyondFlexBox";

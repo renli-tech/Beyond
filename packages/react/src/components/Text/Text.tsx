@@ -4,7 +4,8 @@ import {
   createStyles,
   PropsOf,
   SystemProps,
-  css as BeyondCssFactory
+  css as BeyondCssFactory,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext } from "@beyond-ui/shared";
 import { GlobalStyles } from "../../GlobalStyles";
@@ -19,12 +20,14 @@ export const Text: React.FC<TextProps> = props => {
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
 
+  const elementProps = omitSystemProps(restProps);
+
   const className = css(styleFromProps);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
   return createComponent<TextProps>(
     "span",
-    { ...props, className },
+    { ...elementProps, className },
     style,
     children
   );

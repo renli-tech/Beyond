@@ -5,7 +5,8 @@ import {
   SystemProps,
   css as BeyondCssFactory,
   createStyles,
-  BeyondStyles
+  BeyondStyles,
+  omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import { css } from "@emotion/css";
@@ -18,6 +19,8 @@ export const Card: React.FC<CardProps> = props => {
   const themeContext = React.useContext(ThemeContext);
 
   const styleFromProps = BeyondCssFactory(restProps)(themeContext?.theme);
+
+  const elementProps = omitSystemProps(restProps);
 
   const className = css(
     {
@@ -36,10 +39,12 @@ export const Card: React.FC<CardProps> = props => {
   return createComponent<CardProps>(
     "div",
     {
-      ...props,
+      ...elementProps,
       className
     },
     style,
     children
   );
 };
+
+Card.displayName = "BeyondCard";
