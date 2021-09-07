@@ -8,7 +8,7 @@ import {
   PropsOf,
   omitSystemProps
 } from "@beyond-ui/system";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 import { ThemeContext } from "@beyond-ui/shared";
 
@@ -25,6 +25,7 @@ export const FlexBox: React.FC<FlexBoxProps> = props => {
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
 
   const className = css(
+    GeneralStyles,
     {
       display: "flex"
     },
@@ -33,7 +34,7 @@ export const FlexBox: React.FC<FlexBoxProps> = props => {
 
   return createComponent(
     "div",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

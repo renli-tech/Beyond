@@ -9,7 +9,7 @@ import {
   omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext } from "@beyond-ui/shared";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 
 export interface FormProps extends SystemProps, PropsOf<"form"> {
@@ -24,12 +24,12 @@ export const Form: React.FC<FormProps> = props => {
 
   const elementProps = omitSystemProps(restProps);
 
-  const className = css(styleFromProps);
+  const className = css(GeneralStyles, styleFromProps);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
   return createComponent<FormProps>(
     "form",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

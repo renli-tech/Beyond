@@ -9,7 +9,7 @@ import {
 } from "@beyond-ui/system";
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import React from "react";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 
 export const AvatarSizes = {
@@ -45,6 +45,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
   );
 
   const className = css(
+    GeneralStyles,
     {
       cursor: "pointer",
       borderRadius: useSpacing("full")
@@ -55,7 +56,7 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   return createComponent<AvatarProps>(
     "img",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

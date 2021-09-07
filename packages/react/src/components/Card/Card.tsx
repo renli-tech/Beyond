@@ -10,7 +10,7 @@ import {
 } from "@beyond-ui/system";
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import { css } from "@emotion/css";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 
 export interface CardProps extends SystemProps, PropsOf<"div"> {}
 
@@ -23,6 +23,7 @@ export const Card: React.FC<CardProps> = props => {
   const elementProps = omitSystemProps(restProps);
 
   const className = css(
+    GeneralStyles,
     {
       padding: useSpacing("4"),
       borderRadius: useSpacing("1"),

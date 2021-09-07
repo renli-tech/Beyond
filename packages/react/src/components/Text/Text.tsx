@@ -8,7 +8,7 @@ import {
   omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext } from "@beyond-ui/shared";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 import * as React from "react";
 
@@ -22,12 +22,12 @@ export const Text: React.FC<TextProps> = props => {
 
   const elementProps = omitSystemProps(restProps);
 
-  const className = css(styleFromProps);
+  const className = css(GeneralStyles, styleFromProps);
 
   const style = createStyles<BeyondStyles>({}, GlobalStyles);
   return createComponent<TextProps>(
     "span",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

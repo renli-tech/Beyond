@@ -9,7 +9,7 @@ import {
   omitSystemProps
 } from "@beyond-ui/system";
 import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 import * as React from "react";
 import { ColorName } from "@beyond-ui/theme";
@@ -54,6 +54,7 @@ export const TextInput: React.FC<TextInputProps> = props => {
   const elementProps = omitSystemProps(restProps);
 
   const className = css(
+    GeneralStyles,
     {
       border: "none",
       outline: "none",
@@ -75,7 +76,7 @@ export const TextInput: React.FC<TextInputProps> = props => {
 
   return createComponent<TextInputProps>(
     "input",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     children
   );

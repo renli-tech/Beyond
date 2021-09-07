@@ -10,7 +10,7 @@ import {
 } from "@beyond-ui/system";
 import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
 import { getFontSize, getSpacing } from "@beyond-ui/theme";
-import { GlobalStyles } from "../../GlobalStyles";
+import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css, keyframes } from "@emotion/css";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -143,6 +143,7 @@ export const Button: React.FC<ButtonProps> = props => {
   const elementProps = omitSystemProps(restProps);
 
   const className = css(
+    GeneralStyles,
     {
       padding: useSpacing("2"),
       paddingLeft: useSpacing("4"),
@@ -181,7 +182,7 @@ export const Button: React.FC<ButtonProps> = props => {
 
   return createComponent<ButtonProps>(
     "button",
-    { ...elementProps, className },
+    { ...elementProps, className: `${className} ${props.className}` },
     style,
     React.createElement(
       ButtonContent,
