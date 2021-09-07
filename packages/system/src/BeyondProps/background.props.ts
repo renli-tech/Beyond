@@ -15,20 +15,40 @@ const backgroundColorResolver = () => (
   };
 };
 
+const backgroundResolver = () => (
+  prop: ColorName | Property.Color,
+  _props: SystemProps,
+  theme?: Theme
+): SystemProps => {
+  const finalValue = extractColor(prop, merge(colors, theme?.colors || {}));
+  return {
+    background: finalValue
+  };
+};
+
 /***
  *
  * used to resolve custom css properties
  */
 
 export const backgroundPropsResolvers = {
-  backgroundColor: backgroundColorResolver(),
+  bg: backgroundResolver(),
+  background: backgroundResolver(),
   bgcolor: backgroundColorResolver(),
-  bgPosition: "backgroundPosition",
-  bgPos: "backgroundPosition",
-  bgRepeat: "backgroundRepeat",
+  backgroundColor: backgroundColorResolver(),
+  bgClip: "backgroundClip",
+  backgroundClip: "backgroundClip",
+  backgroundImage: "backgroundImage",
+  bgImage: "backgroundImage",
+  backgroundSize: "backgroundSize",
   bgSize: "backgroundSize",
-  bgImage: "backgroundSize",
-  bgClip: "backgroundClip"
+  bgPos: "backgroundPosition",
+  backgroundPosition: "backgroundPosition",
+  bgPosition: "backgroundPosition",
+  bgRepeat: "backgroundRepeat",
+  backgroundRepeat: "backgroundRepeat",
+  bgAttachment: "backgroundAttachment",
+  backgroundAttachment: "backgroundAttachment"
 };
 
 export interface BackgroundProps {

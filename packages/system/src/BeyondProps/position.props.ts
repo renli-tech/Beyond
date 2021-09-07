@@ -23,7 +23,13 @@ export const positionPropsResolvers = {
       bottom: prop
     };
   },
-  pos: "position"
+  pos: "position",
+  zIndex: "zIndex",
+  top: "top",
+  right: "right",
+  bottom: "bottom",
+  left: "left",
+  position: "position"
 };
 
 export interface PositionProps {

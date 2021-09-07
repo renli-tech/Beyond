@@ -1,6 +1,14 @@
-import { ColorName, RoundedValues, getRadius } from "@beyond-ui/theme";
+import {
+  ColorName,
+  RoundedValues,
+  getRadius,
+  Theme,
+  extractColor,
+  colors
+} from "@beyond-ui/theme";
 import { Property } from "csstype";
 import { SystemProps } from ".";
+import { merge } from "@beyond-ui/utils";
 import { Token } from "./types";
 
 const roundedResolver = (propVal: keyof BorderProps) => (
@@ -12,8 +20,48 @@ const roundedResolver = (propVal: keyof BorderProps) => (
   };
 };
 
+const borderColorResolver = (propVal: keyof BorderProps) => (
+  prop: ColorName | Property.Color,
+  _props: SystemProps,
+  theme?: Theme
+): SystemProps => {
+  const finalValue = extractColor(prop, merge(colors, theme?.colors || {}));
+  return {
+    [propVal]: finalValue
+  };
+};
+
 export const borderPropsResolvers = {
-  rounded: roundedResolver("borderRadius")
+  border: "border",
+  borderWidth: "borderWidth",
+  borderStyle: "borderStyle",
+  borderColor: borderColorResolver("borderColor"),
+  borderRadius: "borderRadius",
+  rounded: roundedResolver("rounded"),
+  borderTop: "borderTop",
+  borderTopWidth: "borderTopWidth",
+  borderBottomWidth: "borderBottomWidth",
+  borderLeftWidth: "borderLeftWidth",
+  borderRightWidth: "borderRightWidth",
+  borderTopStyle: "borderTopStyle",
+  borderBottomStyle: "borderBottomStyle",
+  borderLeftStyle: "borderLeftStyle",
+  borderRightStyle: "borderRightStyle",
+  borderTopColor: borderColorResolver("borderTopColor"),
+  borderBottomColor: borderColorResolver("borderBottomColor"),
+  borderLeftColor: borderColorResolver("borderLeftColor"),
+  borderRightColor: borderColorResolver("borderRightColor"),
+  borderRight: "borderRight",
+  borderBottom: "borderbottom",
+  borderLeft: "borderLeft",
+  borderTopRadius: "borderTopRadius",
+  borderRightRadius: "borderRightRadius",
+  borderBottomRadius: "borderBottomRadius",
+  borderLeftRadius: "borderLeftRadius",
+  borderTopLeftRadius: "borderTopLeftRadius",
+  borderTopRightRadius: "borderTopRightRadius",
+  borderBottomLeftRadius: "borderBottomLeftRadius",
+  borderBottomRightRadius: "borderBottomRightRadius"
 };
 export interface BorderProps {
   /**

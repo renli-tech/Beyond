@@ -1,21 +1,42 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Property } from "csstype";
-import { OpacityValue } from "@beyond-ui/theme";
+import {
+  boxShadow,
+  BoxShadow,
+  dropShadow,
+  DropShadow,
+  OpacityValue
+} from "@beyond-ui/theme";
 import { Token } from "./types";
 
 export const effectPropsResolver = {
-  shadow: "boxShadow",
-  bgBlendMode: "backgroundBlendMode"
+  shadow: (prop: BoxShadow) => ({
+    boxShadow: boxShadow[prop]
+  }),
+  dropShadow: (prop: DropShadow) => ({
+    dropShadow: dropShadow[prop]
+  }),
+  bgBlendMode: "backgroundBlendMode",
+  boxShadow: "boxShadow",
+  mixBlendMode: "mixBlendMode",
+  blendMode: "mixBlendMode",
+  backgroundBlendMode: "backgroundBlendMode",
+  opacity: "opacity"
 };
 
 export interface EffectProps {
   /**
    * The `box-shadow` property
    */
-  boxShadow?: Token<Property.BoxShadow | number>;
+  boxShadow?: Token<Property.BoxShadow>;
   /**
    * The `box-shadow` property
    */
-  shadow?: Token<Property.BoxShadow | number>;
+  shadow?: Token<BoxShadow>;
+  /**
+   * The `box-shadow` property
+   */
+  dropShadow?: Token<DropShadow>;
   /**
    * The `mix-blend-mode` property
    */

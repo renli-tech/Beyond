@@ -4,27 +4,32 @@ import { SystemProps } from ".";
 import { merge } from "@beyond-ui/utils";
 import { Token } from "./types";
 
-const colorResolver = () => (
+const colorResolver = (propVal?: keyof ColorProps) => (
   prop: ColorName | Property.Color,
   _props: SystemProps,
   theme?: Theme
 ): SystemProps => {
   const finalValue = extractColor(prop, merge(colors, theme?.colors || {}));
   return {
-    color: finalValue
+    [propVal || "color"]: finalValue
   };
 };
 
 export const colorPropsResolver = {
   textColor: colorResolver(),
-  fill: colorResolver(),
-  color: colorResolver()
+  fill: colorResolver("fill"),
+  color: colorResolver(),
+  stroke: colorResolver("stroke")
 };
 export interface ColorProps {
   /**
    * The CSS `color` property
    */
   color?: Token<ColorName | Property.Color>;
+  /**
+   * The CSS `color` property
+   */
+  textColor?: Token<ColorName | Property.Color>;
   /**
    * The CSS `fill` property for icon svgs and paths
    */

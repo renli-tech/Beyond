@@ -27,7 +27,7 @@ export const mediaQueriesPropsResolver = {
       [key]: prop
     };
   },
-  "2xl": (prop: SystemProps | {}): SystemProps => {
+  _2xl: (prop: SystemProps | {}): SystemProps => {
     const key = `@media (min-width: ${breakpoints["2xl"]})`;
     return {
       [key]: prop
@@ -73,7 +73,7 @@ export interface MediaQueriesProps {
   /**
    * `@media (min-width: 1536px)
    */
-  "2xl"?: Token<SystemProps | {}>;
+  _2xl?: Token<SystemProps | {}>;
   /**
    * `@media print`
    */
