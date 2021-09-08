@@ -11,7 +11,7 @@ import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
 import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 import * as React from "react";
-import { ColorName, getFontSize, getSpacing } from "../../../../theme/dist";
+import { ColorName, getFontSize, getSpacing } from "@beyond-ui/theme";
 
 export interface BadgeProps extends SystemProps, PropsOf<"span"> {
   colorScheme?: ColorName;
@@ -38,6 +38,7 @@ export const Badge: React.FC<BadgeProps> = props => {
       borderRadius: getSpacing("2"),
       ...getFontSize("xs"),
       paddingTop: useSpacing("1"),
+      margin: useSpacing("0.5"),
       paddingBottom: useSpacing("1")
     },
     styleFromProps

@@ -34,7 +34,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "paths": {
-      "@starter/*": ["packages/*/src"]
+      "@beyond-ui/*": ["packages/*/src"]
     },
 
     /* Advanced Options */
