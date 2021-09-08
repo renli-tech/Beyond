@@ -11,6 +11,7 @@ import {
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import { css } from "@emotion/css";
 import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
+import { boxShadow } from "../../../../theme/dist";
 
 export interface CardProps extends SystemProps, PropsOf<"div"> {}
 
@@ -29,8 +30,7 @@ export const Card: React.FC<CardProps> = props => {
       borderRadius: useSpacing("1"),
       backgroundColor: "white",
       margin: useSpacing("4"),
-      boxShadow:
-        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+      boxShadow: boxShadow["sm"]
     },
     styleFromProps
   );
