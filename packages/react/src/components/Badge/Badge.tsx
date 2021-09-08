@@ -38,6 +38,7 @@ export const Badge: React.FC<BadgeProps> = props => {
       borderRadius: getSpacing("2"),
       ...getFontSize("xs"),
       paddingTop: useSpacing("1"),
+      margin: useSpacing("0.5"),
       paddingBottom: useSpacing("1")
     },
     styleFromProps

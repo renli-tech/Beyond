@@ -2,6 +2,7 @@
 import React from "react";
 import { Meta } from "@storybook/react";
 import { Badge } from "../Badge";
+import { Container } from "../../Container";
 
 export default {
   title: "Badge",
@@ -10,8 +11,16 @@ export default {
 
 export const Basic = () => {
   return (
-    <Badge className='button' colorScheme='green'>
-      cool
-    </Badge>
+    <Container>
+      <Badge className='button' colorScheme='green'>
+        Success
+      </Badge>
+      <Badge className='button' colorScheme='red'>
+        Danger
+      </Badge>
+      <Badge className='button' colorScheme='sky' textTransform='uppercase'>
+        New
+      </Badge>
+    </Container>
   );
 };

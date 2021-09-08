@@ -48,8 +48,8 @@ export const Avatar: React.FC<AvatarProps> = props => {
     GeneralStyles,
     {
       cursor: "pointer",
-      borderRadius: useSpacing("full")
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      borderRadius: useSpacing("full"),
+      margin: useSpacing("0.5")
     },
     styleFromProps
   );

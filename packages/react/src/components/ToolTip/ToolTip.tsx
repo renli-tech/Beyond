@@ -22,7 +22,13 @@ export interface ToolTipProps extends TextProps {
 }
 
 export const ToolTip: React.FC<ToolTipProps> = props => {
-  const { children, toolTipBg, placement, hasArrow, ...restProps } = props;
+  const {
+    children,
+    toolTipBg,
+    placement,
+    hasArrow = true,
+    ...restProps
+  } = props;
 
   const themeContext = React.useContext(ThemeContext);
 
@@ -125,7 +131,7 @@ export const ToolTip: React.FC<ToolTipProps> = props => {
           animationDelay: ".1s"
         },
         "::before": {
-          display: hasArrow ? "inline-block" : "none"
+          display: hasArrow === true ? "inline-block" : "none"
         }
       },
       "::after": {
