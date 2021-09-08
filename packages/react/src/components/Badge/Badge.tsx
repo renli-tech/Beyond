@@ -11,7 +11,7 @@ import { ThemeContext, useColor, useSpacing } from "@beyond-ui/shared";
 import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
 import { css } from "@emotion/css";
 import * as React from "react";
-import { ColorName, getFontSize, getSpacing } from "../../../../theme/dist";
+import { ColorName, getFontSize, getSpacing } from "@beyond-ui/theme";
 
 export interface BadgeProps extends SystemProps, PropsOf<"span"> {
   colorScheme?: ColorName;
