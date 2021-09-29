@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/renli-tech/Beyond/compare/@beyond-ui/system@1.2.1...@beyond-ui/system@1.3.0) (2021-09-29)
+
+### Features
+
+- **system:** resolved all SystemProps,added omitSystemProps function ([456fb14](https://github.com/renli-tech/Beyond/commit/456fb140ad2824984d73d2ee1a6f6aed6e315711))
+
 # [1.2.0](https://github.com/renli-tech/Beyond/compare/@beyond-ui/system@1.0.1...@beyond-ui/system@1.2.0) (2021-09-03)
 
 ### Bug Fixes
