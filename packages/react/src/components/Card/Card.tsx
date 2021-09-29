@@ -11,7 +11,7 @@ import {
 import { ThemeContext, useSpacing } from "@beyond-ui/shared";
 import { css } from "@emotion/css";
 import { GeneralStyles, GlobalStyles } from "../../GlobalStyles";
-import { boxShadow } from "../../../../theme/dist";
+import { boxShadow } from "@beyond-ui/theme";
 
 export interface CardProps extends SystemProps, PropsOf<"div"> {}
 
