@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/renli-tech/Beyond/compare/@beyond-ui/shared@1.0.4...@beyond-ui/shared@1.0.6) (2021-09-29)
+
+**Note:** Version bump only for package @beyond-ui/shared
+
 ## [1.0.5](https://github.com/renli-tech/Beyond/compare/@beyond-ui/shared@1.0.4...@beyond-ui/shared@1.0.5) (2021-09-29)
 
 **Note:** Version bump only for package @beyond-ui/shared
