@@ -148,7 +148,7 @@
     "eslint-plugin-react-hooks": "1.7.0",
     "figures": "3.2.0",
     "filesize": "6.4.0",
-    "fs-extra": "8.1.0",
+    "fs-extra": "10.0.0",
     "gzip-size": "5.1.1",
     "husky": "4.3.8",
     "jest": "27.3.1",
