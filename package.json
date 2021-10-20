@@ -149,7 +149,7 @@
     "figures": "3.2.0",
     "filesize": "6.4.0",
     "fs-extra": "8.1.0",
-    "gzip-size": "5.1.1",
+    "gzip-size": "6.0.0",
     "husky": "4.3.8",
     "jest": "27.3.1",
     "jest-environment-jsdom": "27.3.1",
