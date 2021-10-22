@@ -174,7 +174,7 @@
     "rollup-plugin-typescript2": "0.30.0",
     "svgo": "2.7.0",
     "ts-jest": "27.0.7",
-    "ts-node": "10.3.1",
+    "ts-node": "10.4.0",
     "uuid": "8.3.2"
   },
   "publishConfig": {
