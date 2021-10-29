@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/renli-tech/Beyond/compare/@beyond-ui/theme@1.1.0...@beyond-ui/theme@1.3.0) (2021-09-29)
+
+### Features
+
+- **theme:** added Grid values ([36ebb9a](https://github.com/renli-tech/Beyond/commit/36ebb9a1e3aca6508b15da23b4be21cc211ecbf0))
+- **theme:** added Shadow values ([cc48f4d](https://github.com/renli-tech/Beyond/commit/cc48f4d6fe245192780ee599cd711269863c0c6b))
+
+# [1.2.0](https://github.com/renli-tech/Beyond/compare/@beyond-ui/theme@1.1.0...@beyond-ui/theme@1.2.0) (2021-09-29)
+
+### Features
+
+- **theme:** added Grid values ([36ebb9a](https://github.com/renli-tech/Beyond/commit/36ebb9a1e3aca6508b15da23b4be21cc211ecbf0))
+- **theme:** added Shadow values ([cc48f4d](https://github.com/renli-tech/Beyond/commit/cc48f4d6fe245192780ee599cd711269863c0c6b))
+
 # [1.1.0](https://github.com/renli-tech/Beyond/compare/@beyond-ui/theme@1.0.1...@beyond-ui/theme@1.1.0) (2021-09-03)
 
 ### Features
