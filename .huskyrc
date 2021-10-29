@@ -1,6 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "yarn lint-staged || node scripts/on-lint-error.js",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-  }
-}
