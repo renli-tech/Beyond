@@ -144,7 +144,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.27.1",
     "eslint-plugin-react-hooks": "4.3.0",
-    "figures": "4.0.0",
+    "figures": "4.0.1",
     "filesize": "6.4.0",
     "fs-extra": "10.0.0",
     "gzip-size": "7.0.0",
