@@ -104,7 +104,7 @@
     "@commitlint/config-lerna-scopes": "15.0.0",
     "@rollup/plugin-alias": "3.1.9",
     "@rollup/plugin-babel": "5.3.1",
-    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-commonjs": "21.1.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-replace": "3.0.0",
     "@rollup/plugin-node-resolve": "13.0.6",
