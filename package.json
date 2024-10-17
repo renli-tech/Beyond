@@ -116,7 +116,7 @@
     "@storybook/preset-create-react-app": "3.2.0",
     "@storybook/react": "6.4.9",
     "@types/classnames": "2.3.0",
-    "@types/node": "16.11.59",
+    "@types/node": "16.18.114",
     "@types/jest": "27.5.2",
     "@types/prettier": "2.4.2",
     "@types/react-router-dom": "5.3.2",
