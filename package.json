@@ -94,7 +94,7 @@
     "last 2 ChromeAndroid versions"
   ],
   "devDependencies": {
-    "@babel/core": "7.18.13",
+    "@babel/core": "7.29.6",
     "@babel/node": "7.18.10",
     "@babel/preset-env": "7.18.10",
     "@babel/preset-react": "7.18.6",
